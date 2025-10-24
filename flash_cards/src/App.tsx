@@ -21,6 +21,24 @@ function shuffleArray(array: string[]) {
   return newArray;
 }
 
+interface CardNextButtonProps {
+  cardIndex: number;
+  setCardIndex: React.Dispatch<React.SetStateAction<number>>;
+  cardArray: object[];
+}
+
+function CardNextButton({ cardIndex, setCardIndex, cardArray }: CardNextButtonProps) {
+  //if the user is at the last card
+  //TODO: add a different state when the user hasn't put in an answer vs when they have. ie. "submit" or "skip"
+  if (cardIndex == (cardArray.length - 1)) {
+    //onClick run function that needs to run whrn the user if finished with a "book"
+    return <button>Finish</button>
+  } else {
+    return <button onClick={() => { setCardIndex(cardIndex + 1) }}>Submit</button>
+  }
+
+}
+
 
 //how the overall object will be laid out
 //might change if I decide to add the settings to the object aswell
@@ -56,8 +74,8 @@ function FlashCard() {
     <h3>{fillerData[0].cardGroups[0].cards[cardIndex].question}</h3>
     {shuffledAnswers.map((answer) => {
       return <p>{answer}</p>
-
     })}
+    <CardNextButton cardIndex={cardIndex} setCardIndex={setCardIndex} cardArray={fillerData[0].cardGroups[0].cards} />
   </>
 }
 
