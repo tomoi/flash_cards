@@ -36,7 +36,14 @@ function CardNextButton({ cardIndex, setCardIndex, cardArray }: CardNextButtonPr
   } else {
     return <button onClick={() => { setCardIndex(cardIndex + 1) }}>Submit</button>
   }
+}
 
+//parameters are correct answer, users answer
+//returns a boolean, true if the answer is correct, false if the answer is incorrect
+function handleSubmit(correctAnswer: string, givenAnswer: string) {
+  correctAnswer = correctAnswer.toLowerCase();
+  givenAnswer = givenAnswer.toLowerCase();
+  return (correctAnswer === givenAnswer);
 }
 
 
@@ -68,12 +75,16 @@ let fillerData = [
 
 function FlashCard() {
   const [cardIndex, setCardIndex] = useState(0);
+  const [cardAnswer, setCardAnswer] = useState("");
 
+  const correctAnswer = fillerData[0].cardGroups[0].cards[cardIndex].correct;
+
+  //TODO: change to only shuffle when a new card is chosen.
   const shuffledAnswers = shuffleArray([fillerData[0].cardGroups[0].cards[cardIndex].correct, ...fillerData[0].cardGroups[0].cards[cardIndex].incorrect])
   return <>
     <h3>{fillerData[0].cardGroups[0].cards[cardIndex].question}</h3>
     {shuffledAnswers.map((answer) => {
-      return <p>{answer}</p>
+      return <button onClick={() => setCardAnswer(answer)}>{answer}</button>
     })}
     <CardNextButton cardIndex={cardIndex} setCardIndex={setCardIndex} cardArray={fillerData[0].cardGroups[0].cards} />
   </>
