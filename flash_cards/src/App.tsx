@@ -149,9 +149,6 @@ function FlashCard() {
         ])
     }
 
-    useEffect(() => {}, [cardIndex])
-    //TODO: change to only shuffle when a new card is chosen.
-
     return (
         <>
             <h3>{fillerData[0].cardGroups[0].cards[cardIndex].question}</h3>
