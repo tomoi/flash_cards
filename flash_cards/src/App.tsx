@@ -126,7 +126,30 @@ let fillerData: Subject[] = [
     },
 ]
 
+function saveCardGroup() {
+
+}
+
 function EditCard() {}
+
+function EditCardGroup({subjectData, updateSubjectData}: subjectInfoProps) {
+  console.log(subjectData)
+  const [cardGroupTitle, setCardGroupTitle] = useState("")
+  // const [cardGroup, setCardGroup] = useState("")
+
+
+  return <>
+  
+  <form action={saveCardGroup}>
+<input 
+type="text" 
+name="cardGroupTitle"
+/>
+
+  </form>
+  
+  </>
+}
 
 function FlashCard() {
     const [cardIndex, setCardIndex] = useState(0)
@@ -168,7 +191,12 @@ function FlashCard() {
     )
 }
 
-function HomePage({ subjectData }: { subjectData: Subject[] }) {
+interface subjectInfoProps {
+  subjectData: Subject[]
+  updateSubjectData: React.Dispatch<React.SetStateAction<Subject[]>>
+}
+
+function HomePage({subjectData, updateSubjectData}: subjectInfoProps) {
     let homeSections = subjectData.map(
         (subject, subjectIndex, subjectArray) => (
             <>
@@ -196,11 +224,13 @@ function HomePage({ subjectData }: { subjectData: Subject[] }) {
 
 function App() {
     const [subjects, updateSubjects] = useState(fillerData)
-
+    const [editSubjects, toggleEditSubjects] = useState(false)
     return (
         <>
             {/* <FlashCard /> */}
-            <HomePage subjectData={subjects} />
+            <HomePage subjectData={subjects}  updateSubjectData={updateSubjects}/>
+
+            {editSubjects && <EditCardGroup subjectData={subjects} updateSubjectData={updateSubjects}/>}
         </>
     )
 }
