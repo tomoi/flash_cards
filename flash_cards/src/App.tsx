@@ -60,7 +60,6 @@ function handleSubmit(correctAnswer: string, givenAnswer: string) {
 }
 
 //how the overall object will be laid out
-//might change if I decide to add the settings to the object aswell
 
 let fillerData: Subject[] = [
     {
@@ -141,6 +140,7 @@ function FlashCard() {
         ...fillerData[0].cardGroups[0].cards[cardIndex].incorrectAnswers,
     ]
 
+    //shuffle answers when a new card appears so the correct answer is not always in the same place
     if (cardIndex !== prevCardIndex) {
         setPrevCardIndex(cardIndex)
         shuffledAnswers = shuffleArray([
