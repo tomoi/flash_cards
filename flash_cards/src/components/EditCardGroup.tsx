@@ -1,20 +1,21 @@
-import { useState } from 'react'
-
-import type {
-    Subject,
-    CardNextButtonProps,
-    subjectInfoProps,
-    subjectEditProps,
-} from '../interfaces.tsx'
+import type { subjectEditProps } from '../interfaces.tsx'
 
 export default function EditCardGroup({
     subjectData,
     updateSubjectData,
     subjectIndex,
+    toggleEditSubjects,
 }: subjectEditProps) {
     function handleSubmit(formData: any) {
         if (subjectData[subjectIndex] === undefined) {
             console.log(formData)
+
+            updateSubjectData([
+                ...subjectData,
+                { title: formData.get('cardGroupTitle'), cardGroups: [] },
+            ])
+            toggleEditSubjects(false)
+
             return
         }
         console.log('Working?')

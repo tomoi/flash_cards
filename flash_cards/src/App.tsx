@@ -1,11 +1,6 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './index.css'
-import type {
-    Subject,
-    CardNextButtonProps,
-    subjectInfoProps,
-    subjectEditProps,
-} from './interfaces.tsx'
+import type { Subject, CardNextButtonProps } from './interfaces.tsx'
 import HomePage from './components/HomePage.tsx'
 
 //flashcards
@@ -135,8 +130,6 @@ let fillerData: Subject[] = [
         ],
     },
 ]
-
-function EditCard() {}
 
 function submitAnswer(
     { submittedAnswer }: { submittedAnswer: string },

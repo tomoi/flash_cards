@@ -2,12 +2,7 @@ import { useState } from 'react'
 
 import EditCardGroup from './EditCardGroup.tsx'
 
-import type {
-    Subject,
-    CardNextButtonProps,
-    subjectInfoProps,
-    subjectEditProps,
-} from '../interfaces.tsx'
+import type { subjectInfoProps } from '../interfaces.tsx'
 
 export default function HomePage({
     subjectData,
@@ -53,6 +48,7 @@ export default function HomePage({
                     subjectData={subjectData}
                     updateSubjectData={updateSubjectData}
                     subjectIndex={editSubjectIndex}
+                    toggleEditSubjects={toggleEditSubjects}
                 />
             )}
         </>

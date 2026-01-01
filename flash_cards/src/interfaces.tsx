@@ -30,4 +30,5 @@ export interface subjectInfoProps {
 
 export interface subjectEditProps extends subjectInfoProps {
     subjectIndex: number
+    toggleEditSubjects: React.Dispatch<React.SetStateAction<boolean>>
 }
