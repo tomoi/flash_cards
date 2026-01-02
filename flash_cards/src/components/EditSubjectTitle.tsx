@@ -1,9 +1,6 @@
 import type { subjectEditProps } from '../interfaces.tsx'
-import CreatedDate from './CreatedDate.tsx'
 
 // Component to display a field to edit an already existing subject
-
-//switches between title and form so the title can be edited in place
 
 export default function EditSubjectTitle({
     subjectData,
