@@ -1,5 +1,6 @@
 export interface Subject {
     title: string
+    dateCreated: number
     cardGroups: CardSet[]
 }
 
@@ -31,4 +32,10 @@ export interface subjectInfoProps {
 export interface subjectEditProps extends subjectInfoProps {
     subjectIndex: number
     toggleEditSubjects: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface editSubjectButtonProps {
+    toggleEditSubjects: React.Dispatch<React.SetStateAction<boolean>>
+    setEditSubjectIndex: React.Dispatch<React.SetStateAction<number>>
+    subjectArray: Subject[]
 }
