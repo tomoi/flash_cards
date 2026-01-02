@@ -10,7 +10,6 @@ export default function NewCardGroupButton({
             onClick={() => {
                 toggleAddCardGroup(true)
                 setEditSubjectIndex(subjectIndex)
-                console.log(subjectIndex)
             }}
         >
             New CardGroup Button

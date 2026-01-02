@@ -12,7 +12,7 @@ export default function AddSubjectForm({
         updateSubjectData([
             ...subjectData,
             {
-                title: formData.get('cardGroupTitle'),
+                title: formData.get('subjectTitle'),
                 dateCreated: new Date().getTime(),
                 cardGroups: [],
             },
@@ -24,7 +24,7 @@ export default function AddSubjectForm({
     return (
         <>
             <form action={handleSubmit}>
-                <input type="text" name="cardGroupTitle" autoFocus required />
+                <input type="text" name="subjectTitle" autoFocus required />
                 <button type="submit">Save</button>
                 <button onClick={() => toggleAddSubject(false)}>Cancel</button>
             </form>

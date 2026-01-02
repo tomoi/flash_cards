@@ -5,6 +5,7 @@ import NewSubjectButton from './NewSubjectButton.tsx'
 import CreatedDate from './CreatedDate.tsx'
 import NewCardGroupButton from './NewCardGroupButton.tsx'
 import AddSubjectForm from './AddSubjectForm.tsx'
+import NewCardGroupForm from './NewCardGroupForm.tsx'
 
 import type { subjectInfoProps } from '../interfaces.tsx'
 
@@ -12,15 +13,25 @@ export default function HomePage({
     subjectData,
     updateSubjectData,
 }: subjectInfoProps) {
-    const [editSubject, toggleEditSubject] = useState(false)
     const [addSubject, toggleAddSubject] = useState(false)
     const [editSubjectIndex, setEditSubjectIndex] = useState(0)
-    const [editCardGroup, toggleEditCardGroup] = useState(false)
     const [addCardGroup, toggleAddCardGroup] = useState(false)
-    const [editCardGroupIndex, setEditCardGroupIndex] = useState(0)
 
+    //display if there is no information on launch
     if (subjectData.length === 0) {
-        return <NewSubjectButton toggleAddSubject={toggleAddSubject} />
+        return (
+            <>
+                <h2>Create a new subject to start!</h2>
+                <NewSubjectButton toggleAddSubject={toggleAddSubject} />
+                {addSubject && (
+                    <AddSubjectForm
+                        subjectData={subjectData}
+                        updateSubjectData={updateSubjectData}
+                        toggleAddSubject={toggleAddSubject}
+                    />
+                )}
+            </>
+        )
     }
 
     let homeSections = subjectData.map(
@@ -44,7 +55,16 @@ export default function HomePage({
                                     editSubjectIndex === subjectIndex &&
                                     cardGroupIndex ===
                                         cardGroupArray.length - 1 && (
-                                        <p>Hey There</p>
+                                        <NewCardGroupForm
+                                            subjectData={subjectData}
+                                            subjectIndex={subjectIndex}
+                                            updateSubjectData={
+                                                updateSubjectData
+                                            }
+                                            toggleAddCardGroup={
+                                                toggleAddCardGroup
+                                            }
+                                        />
                                     )}
                                 {cardGroupIndex ===
                                     cardGroupArray.length - 1 && (
@@ -61,7 +81,14 @@ export default function HomePage({
                     )}
                     {addCardGroup &&
                         editSubjectIndex === subjectIndex &&
-                        subject.cardGroups.length === 0 && <p>Hey There</p>}
+                        subject.cardGroups.length === 0 && (
+                            <NewCardGroupForm
+                                subjectData={subjectData}
+                                subjectIndex={subjectIndex}
+                                updateSubjectData={updateSubjectData}
+                                toggleAddCardGroup={toggleAddCardGroup}
+                            />
+                        )}
                     {subject.cardGroups.length === 0 && (
                         <NewCardGroupButton
                             toggleAddCardGroup={toggleAddCardGroup}

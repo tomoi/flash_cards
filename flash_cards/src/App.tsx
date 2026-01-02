@@ -185,13 +185,15 @@ function FlashCard() {
 }
 
 function App() {
-    const [subjects, updateSubjects] = useState(fillerData)
+    const [subjectData, updateSubjectData] = useState<Subject[]>([])
+    // const [subjectData, updateSubjectData] = useState(fillerData)
+
     return (
         <>
             {/* <FlashCard /> */}
             <HomePage
-                subjectData={subjects}
-                updateSubjectData={updateSubjects}
+                subjectData={subjectData}
+                updateSubjectData={updateSubjectData}
             />
         </>
     )

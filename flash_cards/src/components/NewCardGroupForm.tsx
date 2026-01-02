@@ -1,13 +1,13 @@
-import type { cardGroupAddProps } from '../interfaces.tsx'
+import type { NewCardGroupProps } from '../interfaces.tsx'
 
 //form to add a new cardGroup when a button is pressed
 
-export default function AddSubjectForm({
+export default function NewCardGroupForm({
     subjectData,
     subjectIndex,
     updateSubjectData,
     toggleAddCardGroup,
-}: cardGroupAddProps) {
+}: NewCardGroupProps) {
     //edit the object when form is submitted
     function handleSubmit(formData: any) {
         let subjectObject = subjectData
@@ -18,7 +18,6 @@ export default function AddSubjectForm({
             cards: [],
         }
         subjectObject[subjectIndex].cardGroups.push(newCardGroup)
-        console.log(subjectObject)
         updateSubjectData(subjectObject)
         toggleAddCardGroup(false)
     }
