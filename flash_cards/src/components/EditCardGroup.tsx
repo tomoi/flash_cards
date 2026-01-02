@@ -8,11 +8,13 @@ export default function EditCardGroup({
 }: subjectEditProps) {
     function handleSubmit(formData: any) {
         if (subjectData[subjectIndex] === undefined) {
-            console.log(formData)
-
             updateSubjectData([
                 ...subjectData,
-                { title: formData.get('cardGroupTitle'), cardGroups: [] },
+                {
+                    title: formData.get('cardGroupTitle'),
+                    dateCreated: new Date().getTime(),
+                    cardGroups: [],
+                },
             ])
             toggleEditSubjects(false)
 

@@ -70,6 +70,7 @@ function handleCardSubmit(correctAnswer: string, givenAnswer: string) {
 let fillerData: Subject[] = [
     {
         title: 'science',
+        dateCreated: 1767374640693,
         cardGroups: [
             {
                 title: 'test 1',
@@ -109,9 +110,10 @@ let fillerData: Subject[] = [
     },
     {
         title: 'math',
+        dateCreated: 1767374667081,
         cardGroups: [
             {
-                title: 'test 1',
+                title: 'test 3',
                 dateCreated: 1,
                 dateEdited: 1,
                 cards: [
