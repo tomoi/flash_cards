@@ -125,29 +125,24 @@ let fillerData: Subject[] = [
     },
 ]
 
-function saveCardGroup() {
-
+function saveCardGroup(e) {
+    e.preventDefault()
 }
 
 function EditCard() {}
 
-function EditCardGroup({subjectData, updateSubjectData}: subjectInfoProps) {
-  console.log(subjectData)
-  const [cardGroupTitle, setCardGroupTitle] = useState("")
-  // const [cardGroup, setCardGroup] = useState("")
+function EditCardGroup({ subjectData, updateSubjectData }: subjectInfoProps) {
+    console.log(subjectData)
+    const [cardGroupTitle, setCardGroupTitle] = useState('')
+    const [cardGroupDesc, setCardGroupDesc] = useState('')
 
-
-  return <>
-  
-  <form action={saveCardGroup}>
-<input 
-type="text" 
-name="cardGroupTitle"
-/>
-
-  </form>
-  
-  </>
+    return (
+        <>
+            <form action={saveCardGroup}>
+                <input type="text" name="cardGroupTitle" />
+            </form>
+        </>
+    )
 }
 
 function FlashCard() {
@@ -192,11 +187,11 @@ function FlashCard() {
 }
 
 interface subjectInfoProps {
-  subjectData: Subject[]
-  updateSubjectData: React.Dispatch<React.SetStateAction<Subject[]>>
+    subjectData: Subject[]
+    updateSubjectData: React.Dispatch<React.SetStateAction<Subject[]>>
 }
 
-function HomePage({subjectData, updateSubjectData}: subjectInfoProps) {
+function HomePage({ subjectData, updateSubjectData }: subjectInfoProps) {
     let homeSections = subjectData.map(
         (subject, subjectIndex, subjectArray) => (
             <>
@@ -228,9 +223,17 @@ function App() {
     return (
         <>
             {/* <FlashCard /> */}
-            <HomePage subjectData={subjects}  updateSubjectData={updateSubjects}/>
+            <HomePage
+                subjectData={subjects}
+                updateSubjectData={updateSubjects}
+            />
 
-            {editSubjects && <EditCardGroup subjectData={subjects} updateSubjectData={updateSubjects}/>}
+            {editSubjects && (
+                <EditCardGroup
+                    subjectData={subjects}
+                    updateSubjectData={updateSubjects}
+                />
+            )}
         </>
     )
 }
