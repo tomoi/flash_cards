@@ -5,11 +5,11 @@ import HomePage from './components/HomePage.tsx'
 
 //flashcards
 //create / delete / edit cards
-//sorted by subject on the top level, then by asignment / test, which will house the individual flashcards
+//sorted by subject on the top level, then by assignment / test, which will house the individual flashcards
 //colour and icon can be edited by each individual subject
 //or maybe just overall colour themes, to avoid having to make a colour picker
 //stores data locally as a json file
-//add / delete / hide cards once the "flipbook" is already made
+//add / delete / hide cards once the "flip-book" is already made
 //
 
 //function to shuffle the correct and incorrect answers together
@@ -74,7 +74,7 @@ let fillerData: Subject[] = [
         cardGroups: [
             {
                 title: 'test 1',
-                dateCreated: 1,
+                dateCreated: 1767376445152,
                 dateEdited: 1,
                 cards: [
                     {
@@ -91,7 +91,7 @@ let fillerData: Subject[] = [
             },
             {
                 title: 'test 2',
-                dateCreated: 1,
+                dateCreated: 1767376457874,
                 dateEdited: 1,
                 cards: [
                     {
@@ -114,7 +114,7 @@ let fillerData: Subject[] = [
         cardGroups: [
             {
                 title: 'test 3',
-                dateCreated: 1,
+                dateCreated: 1767376472479,
                 dateEdited: 1,
                 cards: [
                     {

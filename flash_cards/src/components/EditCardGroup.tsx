@@ -27,7 +27,7 @@ export default function EditCardGroup({
     return (
         <>
             <form action={handleSubmit}>
-                <input type="text" name="cardGroupTitle" />
+                <input type="text" name="cardGroupTitle" autoFocus />
                 <button type="submit">Save</button>
             </form>
         </>
