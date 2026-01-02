@@ -1,8 +1,10 @@
 import { useState } from 'react'
 
-import EditCardGroup from './EditCardGroup.tsx'
+import EditSubject from './EditSubjectTitle.tsx'
 import NewSubjectButton from './NewSubjectButton.tsx'
 import CreatedDate from './CreatedDate.tsx'
+import NewCardGroupButton from './NewCardGroupButton.tsx'
+import AddSubjectForm from './AddSubjectForm.tsx'
 
 import type { subjectInfoProps } from '../interfaces.tsx'
 
@@ -10,17 +12,15 @@ export default function HomePage({
     subjectData,
     updateSubjectData,
 }: subjectInfoProps) {
-    const [editSubjects, toggleEditSubjects] = useState(false)
+    const [editSubject, toggleEditSubject] = useState(false)
+    const [addSubject, toggleAddSubject] = useState(false)
     const [editSubjectIndex, setEditSubjectIndex] = useState(0)
+    const [editCardGroup, toggleEditCardGroup] = useState(false)
+    const [addCardGroup, toggleAddCardGroup] = useState(false)
+    const [editCardGroupIndex, setEditCardGroupIndex] = useState(0)
 
     if (subjectData.length === 0) {
-        return (
-            <NewSubjectButton
-                toggleEditSubjects={toggleEditSubjects}
-                setEditSubjectIndex={setEditSubjectIndex}
-                subjectArray={subjectData}
-            />
-        )
+        return <NewSubjectButton toggleAddSubject={toggleAddSubject} />
     }
 
     let homeSections = subjectData.map(
@@ -40,21 +40,38 @@ export default function HomePage({
                                     <p>Created: {cardGroup.dateCreated}</p>
                                     <p>Last Edited: {cardGroup.dateEdited}</p>
                                 </div>
+                                {addCardGroup &&
+                                    editSubjectIndex === subjectIndex &&
+                                    cardGroupIndex ===
+                                        cardGroupArray.length - 1 && (
+                                        <p>Hey There</p>
+                                    )}
                                 {cardGroupIndex ===
                                     cardGroupArray.length - 1 && (
-                                    <p>Last Card Group</p>
+                                    <NewCardGroupButton
+                                        toggleAddCardGroup={toggleAddCardGroup}
+                                        subjectIndex={subjectIndex}
+                                        setEditSubjectIndex={
+                                            setEditSubjectIndex
+                                        }
+                                    />
                                 )}
                             </>
                         )
                     )}
-                    {subject.cardGroups.length === 0 && <p>Last Card Group</p>}
+                    {addCardGroup &&
+                        editSubjectIndex === subjectIndex &&
+                        subject.cardGroups.length === 0 && <p>Hey There</p>}
+                    {subject.cardGroups.length === 0 && (
+                        <NewCardGroupButton
+                            toggleAddCardGroup={toggleAddCardGroup}
+                            subjectIndex={subjectIndex}
+                            setEditSubjectIndex={setEditSubjectIndex}
+                        />
+                    )}
                 </div>
                 {subjectIndex === subjectArray.length - 1 && (
-                    <NewSubjectButton
-                        toggleEditSubjects={toggleEditSubjects}
-                        setEditSubjectIndex={setEditSubjectIndex}
-                        subjectArray={subjectData}
-                    />
+                    <NewSubjectButton toggleAddSubject={toggleAddSubject} />
                 )}
             </div>
         )
@@ -62,12 +79,11 @@ export default function HomePage({
     return (
         <>
             {homeSections}
-            {editSubjects && (
-                <EditCardGroup
+            {addSubject && (
+                <AddSubjectForm
                     subjectData={subjectData}
                     updateSubjectData={updateSubjectData}
-                    subjectIndex={editSubjectIndex}
-                    toggleEditSubjects={toggleEditSubjects}
+                    toggleAddSubject={toggleAddSubject}
                 />
             )}
         </>

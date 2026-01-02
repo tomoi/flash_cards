@@ -1,15 +1,12 @@
-import type { editSubjectButtonProps } from '../interfaces'
+import type { addSubjectButtonProps } from '../interfaces'
 
 export default function NewSubjectButton({
-    toggleEditSubjects,
-    setEditSubjectIndex,
-    subjectArray,
-}: editSubjectButtonProps) {
+    toggleAddSubject,
+}: addSubjectButtonProps) {
     return (
         <button
             onClick={() => {
-                toggleEditSubjects(true)
-                setEditSubjectIndex(subjectArray.length)
+                toggleAddSubject(true)
             }}
         >
             New Subject Button

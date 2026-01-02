@@ -29,13 +29,21 @@ export interface subjectInfoProps {
     updateSubjectData: React.Dispatch<React.SetStateAction<Subject[]>>
 }
 
-export interface subjectEditProps extends subjectInfoProps {
-    subjectIndex: number
-    toggleEditSubjects: React.Dispatch<React.SetStateAction<boolean>>
+export interface subjectAddProps extends subjectInfoProps {
+    toggleAddSubject: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export interface editSubjectButtonProps {
-    toggleEditSubjects: React.Dispatch<React.SetStateAction<boolean>>
+export interface subjectEditProps extends subjectInfoProps {
+    subjectIndex: number
+    toggleEditSubject: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface addSubjectButtonProps {
+    toggleAddSubject: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export interface addCardGroupButtonProps {
+    toggleAddCardGroup: React.Dispatch<React.SetStateAction<boolean>>
+    subjectIndex: number
     setEditSubjectIndex: React.Dispatch<React.SetStateAction<number>>
-    subjectArray: Subject[]
 }
