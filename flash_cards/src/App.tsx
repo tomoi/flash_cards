@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './index.css'
-import type { Subject } from './interfaces.tsx'
+import type { Subject, CardNextButtonProps } from './interfaces.tsx'
+import HomePage from './components/HomePage.tsx'
 
 //flashcards
 //create / delete / edit cards
@@ -22,22 +23,27 @@ function shuffleArray(array: string[]) {
     return newArray
 }
 
-interface CardNextButtonProps {
-    cardIndex: number
-    setCardIndex: React.Dispatch<React.SetStateAction<number>>
-    cardArray: object[]
-}
-
 function CardNextButton({
     cardIndex,
     setCardIndex,
     cardArray,
+    cardAnswered,
 }: CardNextButtonProps) {
     //if the user is at the last card
     //TODO: add a different state when the user hasn't put in an answer vs when they have. ie. "submit" or "skip"
     if (cardIndex == cardArray.length - 1) {
-        //onClick run function that needs to run whrn the user if finished with a "book"
+        //onClick run function that needs to run when the user if finished with a card set
         return <button>Finish</button>
+    } else if (!cardAnswered) {
+        return (
+            <button
+                onClick={() => {
+                    setCardIndex(cardIndex + 1)
+                }}
+            >
+                Skip
+            </button>
+        )
     } else {
         return (
             <button
@@ -53,7 +59,7 @@ function CardNextButton({
 
 //parameters are correct answer, users answer
 //returns a boolean, true if the answer is correct, false if the answer is incorrect
-function handleSubmit(correctAnswer: string, givenAnswer: string) {
+function handleCardSubmit(correctAnswer: string, givenAnswer: string) {
     correctAnswer = correctAnswer.toLowerCase()
     givenAnswer = givenAnswer.toLowerCase()
     return correctAnswer === givenAnswer
@@ -125,30 +131,18 @@ let fillerData: Subject[] = [
     },
 ]
 
-function saveCardGroup(e) {
-    e.preventDefault()
-}
-
-function EditCard() {}
-
-function EditCardGroup({ subjectData, updateSubjectData }: subjectInfoProps) {
-    console.log(subjectData)
-    const [cardGroupTitle, setCardGroupTitle] = useState('')
-    const [cardGroupDesc, setCardGroupDesc] = useState('')
-
-    return (
-        <>
-            <form action={saveCardGroup}>
-                <input type="text" name="cardGroupTitle" />
-            </form>
-        </>
-    )
+function submitAnswer(
+    { submittedAnswer }: { submittedAnswer: string },
+    { correctAnswer }: { correctAnswer: string }
+) {
+    return submittedAnswer === correctAnswer
 }
 
 function FlashCard() {
     const [cardIndex, setCardIndex] = useState(0)
     const [prevCardIndex, setPrevCardIndex] = useState(0)
     const [cardAnswer, setCardAnswer] = useState('')
+    const [cardScore, updateCardScore] = useState([])
 
     const correctAnswer =
         fillerData[0].cardGroups[0].cards[cardIndex].correctAnswer
@@ -161,6 +155,7 @@ function FlashCard() {
     //shuffle answers when a new card appears so the correct answer is not always in the same place
     if (cardIndex !== prevCardIndex) {
         setPrevCardIndex(cardIndex)
+        setCardAnswer('')
         shuffledAnswers = shuffleArray([
             fillerData[0].cardGroups[0].cards[cardIndex].correctAnswer,
             ...fillerData[0].cardGroups[0].cards[cardIndex].incorrectAnswers,
@@ -181,45 +176,14 @@ function FlashCard() {
                 cardIndex={cardIndex}
                 setCardIndex={setCardIndex}
                 cardArray={fillerData[0].cardGroups[0].cards}
+                cardAnswered={cardAnswer !== ''}
             />
         </>
     )
 }
 
-interface subjectInfoProps {
-    subjectData: Subject[]
-    updateSubjectData: React.Dispatch<React.SetStateAction<Subject[]>>
-}
-
-function HomePage({ subjectData, updateSubjectData }: subjectInfoProps) {
-    let homeSections = subjectData.map(
-        (subject, subjectIndex, subjectArray) => (
-            <>
-                <p>{subject.title}</p>
-                {subjectIndex === subjectArray.length - 1 && (
-                    <p>Last Subject</p>
-                )}
-                {subject.cardGroups.map(
-                    (cardGroup, cardGroupIndex, cardGroupArray) => (
-                        <>
-                            <p>{cardGroup.title}</p>
-                            <p>Created: {cardGroup.dateCreated}</p>
-                            <p>Last Edited: {cardGroup.dateEdited}</p>
-                            {cardGroupIndex === cardGroupArray.length - 1 && (
-                                <p>Last Card Group</p>
-                            )}
-                        </>
-                    )
-                )}
-            </>
-        )
-    )
-    return <>{homeSections}</>
-}
-
 function App() {
     const [subjects, updateSubjects] = useState(fillerData)
-    const [editSubjects, toggleEditSubjects] = useState(false)
     return (
         <>
             {/* <FlashCard /> */}
@@ -227,13 +191,6 @@ function App() {
                 subjectData={subjects}
                 updateSubjectData={updateSubjects}
             />
-
-            {editSubjects && (
-                <EditCardGroup
-                    subjectData={subjects}
-                    updateSubjectData={updateSubjects}
-                />
-            )}
         </>
     )
 }
