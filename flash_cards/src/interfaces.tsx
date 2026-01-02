@@ -33,6 +33,13 @@ export interface subjectAddProps extends subjectInfoProps {
     toggleAddSubject: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+export interface cardGroupAddProps {
+    subjectData: Subject[]
+    subjectIndex: number
+    updateSubjectData: React.Dispatch<React.SetStateAction<Subject[]>>
+    toggleAddCardGroup: React.Dispatch<React.SetStateAction<boolean>>
+}
+
 export interface subjectEditProps extends subjectInfoProps {
     subjectIndex: number
     toggleEditSubject: React.Dispatch<React.SetStateAction<boolean>>
