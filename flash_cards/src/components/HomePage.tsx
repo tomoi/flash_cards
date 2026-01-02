@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-import EditSubject from './EditSubjectTitle.tsx'
+import EditSubjectTitle from './EditSubjectTitle.tsx'
 import NewSubjectButton from './NewSubjectButton.tsx'
 import CreatedDate from './CreatedDate.tsx'
 import NewCardGroupButton from './NewCardGroupButton.tsx'
@@ -15,6 +15,7 @@ export default function HomePage({
 }: subjectInfoProps) {
     const [addSubject, toggleAddSubject] = useState(false)
     const [editSubjectIndex, setEditSubjectIndex] = useState(0)
+    const [editSubject, toggleEditSubject] = useState(false)
     const [addCardGroup, toggleAddCardGroup] = useState(false)
 
     //display if there is no information on launch
@@ -37,8 +38,32 @@ export default function HomePage({
     let homeSections = subjectData.map(
         (subject, subjectIndex, subjectArray) => (
             <div className="singleSubject" key={subject.dateCreated}>
-                <h2>{subject.title}</h2>
-                <CreatedDate date={subject.dateCreated} displayType="short" />
+                {/* change what is displayed based on if the tile is currently being edited */}
+                {editSubjectIndex === subjectIndex && editSubject ? (
+                    <EditSubjectTitle
+                        subjectData={subjectData}
+                        updateSubjectData={updateSubjectData}
+                        subjectIndex={subjectIndex}
+                        toggleEditSubject={toggleEditSubject}
+                    />
+                ) : (
+                    <>
+                        <h2>{subject.title}</h2>
+                        <CreatedDate
+                            date={subject.dateCreated}
+                            displayType="short"
+                        />
+                        <button
+                            onClick={() => {
+                                toggleEditSubject(true)
+                                setEditSubjectIndex(subjectIndex)
+                            }}
+                        >
+                            Edit Title
+                        </button>
+                    </>
+                )}
+                {/* <h2>{subject.title}</h2> */}
                 <div className="multipleCardGroups">
                     {subject.cardGroups.map(
                         (cardGroup, cardGroupIndex, cardGroupArray) => (
