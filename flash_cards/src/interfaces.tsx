@@ -17,13 +17,6 @@ interface Card {
     incorrectAnswers: string[]
 }
 
-export interface CardNextButtonProps {
-    cardIndex: number
-    setCardIndex: React.Dispatch<React.SetStateAction<number>>
-    cardArray: object[]
-    cardAnswered: boolean
-}
-
 export interface subjectInfoProps {
     subjectData: Subject[]
     updateSubjectData: React.Dispatch<React.SetStateAction<Subject[]>>

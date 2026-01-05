@@ -7,6 +7,17 @@ function submitAnswer(
     return submittedAnswer === correctAnswer
 }
 
+//function to shuffle the correct and incorrect answers together
+//taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffleArray(array: string[]) {
+    let newArray = array
+    for (let i = newArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1))
+        ;[newArray[i], newArray[j]] = [newArray[j], newArray[i]]
+    }
+    return newArray
+}
+
 export default function FlashCard() {
     const [cardIndex, setCardIndex] = useState(0)
     const [prevCardIndex, setPrevCardIndex] = useState(0)

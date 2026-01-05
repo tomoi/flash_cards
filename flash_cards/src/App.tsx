@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import './index.css'
-import type { Subject, CardNextButtonProps } from './interfaces.tsx'
+import type { Subject } from './interfaces.tsx'
 import HomePage from './components/HomePage.tsx'
 import Footer from './components/Footer.tsx'
 import Header from './components/Header.tsx'
@@ -13,59 +13,6 @@ import Header from './components/Header.tsx'
 //stores data locally as a json file
 //add / delete / hide cards once the "flip-book" is already made
 // maybe have the users answers that are incorrect become the incorrect answers that are displayed the next time, as long as it isn't just a spelling mistake
-
-//function to shuffle the correct and incorrect answers together
-//taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-function shuffleArray(array: string[]) {
-    let newArray = array
-    for (let i = newArray.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1))
-        ;[newArray[i], newArray[j]] = [newArray[j], newArray[i]]
-    }
-    return newArray
-}
-
-function CardNextButton({
-    cardIndex,
-    setCardIndex,
-    cardArray,
-    cardAnswered,
-}: CardNextButtonProps) {
-    //if the user is at the last card
-    //TODO: add a different state when the user hasn't put in an answer vs when they have. ie. "submit" or "skip"
-    if (cardIndex == cardArray.length - 1) {
-        //onClick run function that needs to run when the user if finished with a card set
-        return <button>Finish</button>
-    } else if (!cardAnswered) {
-        return (
-            <button
-                onClick={() => {
-                    setCardIndex(cardIndex + 1)
-                }}
-            >
-                Skip
-            </button>
-        )
-    } else {
-        return (
-            <button
-                onClick={() => {
-                    setCardIndex(cardIndex + 1)
-                }}
-            >
-                Submit
-            </button>
-        )
-    }
-}
-
-//parameters are correct answer, users answer
-//returns a boolean, true if the answer is correct, false if the answer is incorrect
-function handleCardSubmit(correctAnswer: string, givenAnswer: string) {
-    correctAnswer = correctAnswer.toLowerCase()
-    givenAnswer = givenAnswer.toLowerCase()
-    return correctAnswer === givenAnswer
-}
 
 //how the overall object will be laid out
 

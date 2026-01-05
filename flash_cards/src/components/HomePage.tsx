@@ -9,6 +9,7 @@ import NewCardGroupForm from './NewCardGroupForm.tsx'
 
 import type { subjectInfoProps, cardDisplayTypes } from '../interfaces.tsx'
 import ShowCardGroupButton from './ShowCardGroupButton.tsx'
+import CardController from './CardController.tsx'
 
 export default function HomePage({
     subjectData,
@@ -172,7 +173,14 @@ export default function HomePage({
                     toggleAddSubject={toggleAddSubject}
                 />
             )}
-            {showCard && <p>Hey there</p>}
+            {showCard && (
+                <CardController
+                    subjectData={subjectData}
+                    updateSubjectData={updateSubjectData}
+                    propCardType={cardDisplayType}
+                    propCardIndex={[...selectedCardGroup, 0]}
+                />
+            )}
         </>
     )
 }

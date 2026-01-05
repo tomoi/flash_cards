@@ -14,4 +14,9 @@ export default function CardController({
 
     //chooses which component is used to display the card. "default", ""
     const [cardDisplay, setCardDisplay] = useState(propCardType)
+
+    if (cardDisplay === 'default') {
+        return
+    }
+    return <p>Hey there</p>
 }
