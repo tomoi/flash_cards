@@ -54,3 +54,26 @@ export interface addCardGroupButtonProps {
     subjectIndex: number
     setEditSubjectIndex: React.Dispatch<React.SetStateAction<number>>
 }
+
+export interface cardDisplayTypes {
+    propCardType:
+        | 'default'
+        | 'multipleChoice'
+        | 'shortAnswer'
+        | 'addCard'
+        | 'editCard'
+        | undefined
+}
+
+export interface CardControllerProps
+    extends cardDisplayTypes, subjectInfoProps {
+    propCardIndex: [number, number, number]
+}
+export interface ShowCardGroupButtonProps extends cardDisplayTypes {
+    toggleShowCard: React.Dispatch<React.SetStateAction<boolean>>
+    selectedCardGroup: [number, number]
+    setSelectedCardGroup: React.Dispatch<React.SetStateAction<[number, number]>>
+    setCardDisplayType: React.Dispatch<
+        React.SetStateAction<cardDisplayTypes['propCardType']>
+    >
+}

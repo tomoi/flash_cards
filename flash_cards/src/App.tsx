@@ -2,6 +2,8 @@ import { useState } from 'react'
 import './index.css'
 import type { Subject, CardNextButtonProps } from './interfaces.tsx'
 import HomePage from './components/HomePage.tsx'
+import Footer from './components/Footer.tsx'
+import Header from './components/Header.tsx'
 
 //flashcards
 //create / delete / edit cards
@@ -10,7 +12,7 @@ import HomePage from './components/HomePage.tsx'
 //or maybe just overall colour themes, to avoid having to make a colour picker
 //stores data locally as a json file
 //add / delete / hide cards once the "flip-book" is already made
-//
+// maybe have the users answers that are incorrect become the incorrect answers that are displayed the next time, as long as it isn't just a spelling mistake
 
 //function to shuffle the correct and incorrect answers together
 //taken from https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
@@ -139,11 +141,13 @@ function App() {
 
     return (
         <>
+            <Header />
             {/* <FlashCard /> */}
             <HomePage
                 subjectData={subjectData}
                 updateSubjectData={updateSubjectData}
             />
+            <Footer />
         </>
     )
 }

@@ -22,10 +22,10 @@ export default function CreatedDate({ date, displayType }: CreatedDateProps) {
 
     if (displayType === 'short') {
         return (
-            <p>
-                Created {monthArrayShort[dateObject.getMonth()]}{' '}
-                {dateObject.getDay()}, {dateObject.getFullYear()}
-            </p>
+            <>
+                {monthArrayShort[dateObject.getMonth()]} {dateObject.getDay()},{' '}
+                {dateObject.getFullYear()}
+            </>
         )
     }
 }
