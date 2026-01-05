@@ -7,7 +7,8 @@ import NewCardGroupButton from './NewCardGroupButton.tsx'
 import AddSubjectForm from './AddSubjectForm.tsx'
 import NewCardGroupForm from './NewCardGroupForm.tsx'
 
-import type { subjectInfoProps } from '../interfaces.tsx'
+import type { subjectInfoProps, cardDisplayTypes } from '../interfaces.tsx'
+import ShowCardGroupButton from './ShowCardGroupButton.tsx'
 
 export default function HomePage({
     subjectData,
@@ -17,6 +18,12 @@ export default function HomePage({
     const [editSubjectIndex, setEditSubjectIndex] = useState(0)
     const [editSubject, toggleEditSubject] = useState(false)
     const [addCardGroup, toggleAddCardGroup] = useState(false)
+    const [showCard, toggleShowCard] = useState(false)
+    const [selectedCardGroup, setSelectedCardGroup] = useState<
+        [number, number]
+    >([0, 0])
+    const [cardDisplayType, setCardDisplayType] =
+        useState<cardDisplayTypes['propCardType']>()
 
     //display if there is no information on launch
     if (subjectData.length === 0) {
@@ -49,10 +56,6 @@ export default function HomePage({
                 ) : (
                     <>
                         <h2>{subject.title}</h2>
-                        <CreatedDate
-                            date={subject.dateCreated}
-                            displayType="short"
-                        />
                         <button
                             onClick={() => {
                                 toggleEditSubject(true)
@@ -61,10 +64,16 @@ export default function HomePage({
                         >
                             Edit Title
                         </button>
+                        <p>
+                            Created{' '}
+                            <CreatedDate
+                                date={subject.dateCreated}
+                                displayType="short"
+                            />
+                        </p>
                     </>
                 )}
-                {/* <h2>{subject.title}</h2> */}
-                <div className="multipleCardGroups">
+                <div className="subjectCardGroups">
                     {subject.cardGroups.map(
                         (cardGroup, cardGroupIndex, cardGroupArray) => (
                             <>
@@ -73,8 +82,32 @@ export default function HomePage({
                                     key={cardGroup.dateCreated}
                                 >
                                     <p>{cardGroup.title}</p>
-                                    <p>Created: {cardGroup.dateCreated}</p>
-                                    <p>Last Edited: {cardGroup.dateEdited}</p>
+                                    <p>
+                                        Created{' '}
+                                        <CreatedDate
+                                            date={cardGroup.dateCreated}
+                                            displayType="short"
+                                        />
+                                    </p>
+                                    <p>
+                                        Last Edited{' '}
+                                        <CreatedDate
+                                            date={cardGroup.dateEdited}
+                                            displayType="short"
+                                        />
+                                    </p>
+                                    <ShowCardGroupButton
+                                        toggleShowCard={toggleShowCard}
+                                        selectedCardGroup={[
+                                            subjectIndex,
+                                            cardGroupIndex,
+                                        ]}
+                                        setSelectedCardGroup={
+                                            setSelectedCardGroup
+                                        }
+                                        setCardDisplayType={setCardDisplayType}
+                                        propCardType="editCard"
+                                    />
                                 </div>
                                 {addCardGroup &&
                                     editSubjectIndex === subjectIndex &&
@@ -104,6 +137,7 @@ export default function HomePage({
                             </>
                         )
                     )}
+                    {/* button to add card group after the last card group appears, or if there are no card groups to display */}
                     {addCardGroup &&
                         editSubjectIndex === subjectIndex &&
                         subject.cardGroups.length === 0 && (
@@ -138,6 +172,7 @@ export default function HomePage({
                     toggleAddSubject={toggleAddSubject}
                 />
             )}
+            {showCard && <p>Hey there</p>}
         </>
     )
 }
