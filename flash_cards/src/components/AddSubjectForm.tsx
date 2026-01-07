@@ -18,6 +18,8 @@ export default function AddSubjectForm({
             },
         ])
         toggleAddSubject(false)
+        console.log(new Date().getTime())
+        console.log(subjectData)
     }
 
     //when form is submitted, update subjectData

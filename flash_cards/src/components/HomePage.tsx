@@ -7,8 +7,7 @@ import NewCardGroupButton from './NewCardGroupButton.tsx'
 import AddSubjectForm from './AddSubjectForm.tsx'
 import NewCardGroupForm from './NewCardGroupForm.tsx'
 
-import type { subjectInfoProps, cardDisplayTypes } from '../interfaces.tsx'
-import ShowCardGroupButton from './ShowCardGroupButton.tsx'
+import type { subjectInfoProps } from '../interfaces.tsx'
 import CardController from './CardController.tsx'
 
 export default function HomePage({
@@ -23,9 +22,6 @@ export default function HomePage({
     const [selectedCardGroup, setSelectedCardGroup] = useState<
         [number, number]
     >([0, 0])
-    const [cardDisplayType, setCardDisplayType] =
-        useState<cardDisplayTypes['propCardType']>()
-
     //display if there is no information on launch
     if (subjectData.length === 0) {
         return (
@@ -81,6 +77,13 @@ export default function HomePage({
                                 <div
                                     className="singleCardGroup"
                                     key={cardGroup.dateCreated}
+                                    onClick={() => {
+                                        toggleShowCard(true)
+                                        setSelectedCardGroup([
+                                            subjectIndex,
+                                            cardGroupIndex,
+                                        ])
+                                    }}
                                 >
                                     <p>{cardGroup.title}</p>
                                     <p>
@@ -97,18 +100,6 @@ export default function HomePage({
                                             displayType="short"
                                         />
                                     </p>
-                                    <ShowCardGroupButton
-                                        toggleShowCard={toggleShowCard}
-                                        selectedCardGroup={[
-                                            subjectIndex,
-                                            cardGroupIndex,
-                                        ]}
-                                        setSelectedCardGroup={
-                                            setSelectedCardGroup
-                                        }
-                                        setCardDisplayType={setCardDisplayType}
-                                        propCardType="editCard"
-                                    />
                                 </div>
                                 {addCardGroup &&
                                     editSubjectIndex === subjectIndex &&
@@ -177,8 +168,8 @@ export default function HomePage({
                 <CardController
                     subjectData={subjectData}
                     updateSubjectData={updateSubjectData}
-                    propCardType={cardDisplayType}
                     propCardIndex={[...selectedCardGroup, 0]}
+                    toggleShowCard={toggleShowCard}
                 />
             )}
         </>

@@ -51,6 +51,7 @@ export interface addCardGroupButtonProps {
 export interface cardDisplayTypes {
     propCardType:
         | 'default'
+        | 'flip'
         | 'multipleChoice'
         | 'shortAnswer'
         | 'addCard'
@@ -58,15 +59,12 @@ export interface cardDisplayTypes {
         | undefined
 }
 
-export interface CardControllerProps
-    extends cardDisplayTypes, subjectInfoProps {
+export interface CardControllerProps extends subjectInfoProps {
     propCardIndex: [number, number, number]
-}
-export interface ShowCardGroupButtonProps extends cardDisplayTypes {
     toggleShowCard: React.Dispatch<React.SetStateAction<boolean>>
-    selectedCardGroup: [number, number]
-    setSelectedCardGroup: React.Dispatch<React.SetStateAction<[number, number]>>
-    setCardDisplayType: React.Dispatch<
-        React.SetStateAction<cardDisplayTypes['propCardType']>
-    >
+}
+
+export interface FlashCardProps extends subjectInfoProps {
+    cardIndex: [number, number, number]
+    setCardIndex: React.Dispatch<React.SetStateAction<[number, number, number]>>
 }

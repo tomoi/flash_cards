@@ -4,7 +4,7 @@ interface CreatedDateProps {
 }
 
 export default function CreatedDate({ date, displayType }: CreatedDateProps) {
-    let dateObject = new Date(date)
+    const dateObject = new Date(date)
     const monthArrayShort = [
         'Jan',
         'Feb',
@@ -21,9 +21,10 @@ export default function CreatedDate({ date, displayType }: CreatedDateProps) {
     ]
 
     if (displayType === 'short') {
+        console.log(dateObject.toString())
         return (
             <>
-                {monthArrayShort[dateObject.getMonth()]} {dateObject.getDay()},{' '}
+                {monthArrayShort[dateObject.getMonth()]} {dateObject.getDate()},{' '}
                 {dateObject.getFullYear()}
             </>
         )
