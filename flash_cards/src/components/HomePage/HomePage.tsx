@@ -1,14 +1,16 @@
 import { useState } from 'react'
 
-import EditSubjectTitle from './EditSubjectTitle.tsx'
-import NewSubjectButton from './NewSubjectButton.tsx'
-import CreatedDate from './CreatedDate.tsx'
-import NewCardGroupButton from './NewCardGroupButton.tsx'
-import AddSubjectForm from './AddSubjectForm.tsx'
-import NewCardGroupForm from './NewCardGroupForm.tsx'
+import EditSubjectTitle from '../EditSubjectTitle/EditSubjectTitle.tsx'
+import NewSubjectButton from '../NewSubjectButton/NewSubjectButton.tsx'
+import CreatedDate from '../CreatedDate/CreatedDate.tsx'
+import NewCardGroupButton from '../NewCardGroupButton/NewCardGroupButton.tsx'
+import AddSubjectForm from '../AddSubjectForm/AddSubjectForm.tsx'
+import NewCardGroupForm from '../NewCardGroupForm/NewCardGroupForm.tsx'
+import CardController from '../CardController/CardController.tsx'
 
-import type { subjectInfoProps } from '../interfaces.tsx'
-import CardController from './CardController.tsx'
+import './homePage.css'
+
+import type { subjectInfoProps } from '../../interfaces.tsx'
 
 export default function HomePage({
     subjectData,

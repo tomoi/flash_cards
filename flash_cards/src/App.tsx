@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './index.css'
 import type { Subject } from './interfaces.tsx'
-import HomePage from './components/HomePage.tsx'
-import Footer from './components/Footer.tsx'
-import Header from './components/Header.tsx'
+import HomePage from './components/HomePage/HomePage.tsx'
+import Footer from './components/Footer/Footer.tsx'
+import Header from './components/Header/Header.tsx'
 
 //flashcards
 //create / delete / edit cards

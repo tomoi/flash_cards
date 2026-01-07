@@ -1,4 +1,4 @@
-import type { FlashCardProps } from '../interfaces'
+import type { FlashCardProps } from '../../interfaces'
 
 export default function EditFlashCard({
     subjectData,

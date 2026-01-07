@@ -1,4 +1,4 @@
-import type { CardExitProps } from '../interfaces'
+import type { CardExitProps } from '../../interfaces'
 
 export default function CardExit({ toggleShowCard }: CardExitProps) {
     return (

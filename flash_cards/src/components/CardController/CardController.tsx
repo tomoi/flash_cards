@@ -1,10 +1,11 @@
 import { useState } from 'react'
-import type { CardControllerProps, cardDisplayTypes } from '../interfaces'
-import EditFlashCard from './EditFlashCard'
-import AddFlashCard from './AddFlashCard'
-import FlashCardFlip from './FlashCardFlip'
-import FlashCardGrid from './FlashCardGridView'
-import CardExit from './CardExit'
+import type { CardControllerProps, cardDisplayTypes } from '../../interfaces'
+import EditFlashCard from '../EditFlashCard/EditFlashCard'
+import AddFlashCard from '../AddFlashCard/AddFlashCard'
+import FlashCardFlip from '../FlashCardFlip/FlashCardFlip'
+import FlashCardGrid from '../FlashCardGridView/FlashCardGridView'
+import CardExit from '../CardExit/CardExit'
+import './cardController.css'
 
 //Component to control how the cards are displayed, to keep the homepage as clean as possible.
 

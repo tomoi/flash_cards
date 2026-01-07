@@ -1,4 +1,4 @@
-import type { FlashCardGridProps } from '../interfaces'
+import type { FlashCardGridProps } from '../../interfaces'
 
 export default function FlashCardGrid({
     cardArray,
