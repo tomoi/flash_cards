@@ -20,8 +20,8 @@ export default function HomePage({
     const [addCardGroup, toggleAddCardGroup] = useState(false)
     const [showCard, toggleShowCard] = useState(false)
     const [selectedCardGroup, setSelectedCardGroup] = useState<
-        [number, number]
-    >([0, 0])
+        [number, number, number]
+    >([0, 0, 0])
     //display if there is no information on launch
     if (subjectData.length === 0) {
         return (
@@ -82,6 +82,7 @@ export default function HomePage({
                                         setSelectedCardGroup([
                                             subjectIndex,
                                             cardGroupIndex,
+                                            0,
                                         ])
                                     }}
                                 >
@@ -168,7 +169,8 @@ export default function HomePage({
                 <CardController
                     subjectData={subjectData}
                     updateSubjectData={updateSubjectData}
-                    propCardIndex={[...selectedCardGroup, 0]}
+                    cardIndex={selectedCardGroup}
+                    setCardIndex={setSelectedCardGroup}
                     toggleShowCard={toggleShowCard}
                 />
             )}

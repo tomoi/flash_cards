@@ -60,11 +60,22 @@ export interface cardDisplayTypes {
 }
 
 export interface CardControllerProps extends subjectInfoProps {
-    propCardIndex: [number, number, number]
+    cardIndex: [number, number, number]
+    setCardIndex: React.Dispatch<React.SetStateAction<[number, number, number]>>
     toggleShowCard: React.Dispatch<React.SetStateAction<boolean>>
 }
 
 export interface FlashCardProps extends subjectInfoProps {
     cardIndex: [number, number, number]
     setCardIndex: React.Dispatch<React.SetStateAction<[number, number, number]>>
+}
+
+export interface FlashCardGridProps {
+    cardArray: Card[]
+    setCardIndex: React.Dispatch<React.SetStateAction<[number, number, number]>>
+    providedCardIndex: [number, number, number]
+}
+
+export interface CardExitProps {
+    toggleShowCard: React.Dispatch<React.SetStateAction<boolean>>
 }

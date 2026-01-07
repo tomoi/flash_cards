@@ -2,17 +2,20 @@ import { useState } from 'react'
 import type { CardControllerProps, cardDisplayTypes } from '../interfaces'
 import EditFlashCard from './EditFlashCard'
 import AddFlashCard from './AddFlashCard'
+import FlashCardFlip from './FlashCardFlip'
+import FlashCardGrid from './FlashCardGridView'
+import CardExit from './CardExit'
 
 //Component to control how the cards are displayed, to keep the homepage as clean as possible.
 
 export default function CardController({
-    propCardIndex,
+    cardIndex,
+    setCardIndex,
     subjectData,
     updateSubjectData,
     toggleShowCard,
 }: CardControllerProps) {
     //index of selected card, uses three numbers to determine the subject index, the cardGroup index, and the card index. i.e [3, 1, 5]
-    const [cardIndex, setCardIndex] = useState(propCardIndex)
 
     //chooses which component is used to display the card.
     const [cardDisplayType, setCardDisplayType] =
@@ -41,6 +44,14 @@ export default function CardController({
                 >
                     Add Cards
                 </button>
+                <FlashCardGrid
+                    cardArray={
+                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
+                    }
+                    setCardIndex={setCardIndex}
+                    providedCardIndex={cardIndex}
+                />
+                <CardExit toggleShowCard={toggleShowCard} />
             </div>
         )
     } else if (cardDisplayType === 'editCard') {
@@ -50,6 +61,7 @@ export default function CardController({
                 <button onClick={() => setCardDisplayType('default')}>
                     Back to default
                 </button>
+                <CardExit toggleShowCard={toggleShowCard} />
             </>
         )
     } else if (cardDisplayType === 'addCard') {
@@ -64,9 +76,31 @@ export default function CardController({
                 <button onClick={() => setCardDisplayType('default')}>
                     Back to default
                 </button>
+                <CardExit toggleShowCard={toggleShowCard} />
+            </>
+        )
+    } else if (cardDisplayType === 'flip') {
+        return (
+            <>
+                <FlashCardFlip
+                    subjectData={subjectData}
+                    updateSubjectData={updateSubjectData}
+                    cardIndex={cardIndex}
+                    setCardIndex={setCardIndex}
+                />
+                <FlashCardGrid
+                    cardArray={
+                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
+                    }
+                    setCardIndex={setCardIndex}
+                    providedCardIndex={cardIndex}
+                />
+                <CardExit toggleShowCard={toggleShowCard} />
             </>
         )
     }
+
+    //while I'm working, this will keep me from having to refresh the page when things go wrong
     return (
         <button onClick={() => setCardDisplayType('default')}>
             Back to default

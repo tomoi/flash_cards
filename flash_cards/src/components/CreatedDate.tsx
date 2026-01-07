@@ -21,7 +21,6 @@ export default function CreatedDate({ date, displayType }: CreatedDateProps) {
     ]
 
     if (displayType === 'short') {
-        console.log(dateObject.toString())
         return (
             <>
                 {monthArrayShort[dateObject.getMonth()]} {dateObject.getDate()},{' '}

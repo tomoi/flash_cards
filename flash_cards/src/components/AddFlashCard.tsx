@@ -7,13 +7,16 @@ export default function AddFlashCard({
     setCardIndex,
 }: FlashCardProps) {
     function handleSave(formData: any) {
-        let subjectObject = subjectData
+        let newSubjectData = subjectData
         let newCard = {
             question: formData.get('question'),
             correctAnswer: formData.get('correctAnswer'),
             incorrectAnswers: [],
         }
-        subjectObject[cardIndex[0]].cardGroups[cardIndex[1]].cards.push(newCard)
+        newSubjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards.push(
+            newCard
+        )
+        updateSubjectData(newSubjectData)
     }
 
     return (
