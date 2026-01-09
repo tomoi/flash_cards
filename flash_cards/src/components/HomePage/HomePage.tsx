@@ -7,6 +7,7 @@ import NewCardGroupButton from '../NewCardGroupButton/NewCardGroupButton.tsx'
 import AddSubjectForm from '../AddSubjectForm/AddSubjectForm.tsx'
 import NewCardGroupForm from '../NewCardGroupForm/NewCardGroupForm.tsx'
 import CardController from '../CardController/CardController.tsx'
+import type { Subject } from '../../interfaces.tsx'
 
 import './homePage.css'
 
@@ -37,6 +38,13 @@ export default function HomePage({
                         toggleAddSubject={toggleAddSubject}
                     />
                 )}
+                <button
+                    onClick={() => {
+                        updateSubjectData(fillerData)
+                    }}
+                >
+                    Use filler data
+                </button>
             </>
         )
     }
@@ -179,3 +187,69 @@ export default function HomePage({
         </>
     )
 }
+
+let fillerData: Subject[] = [
+    {
+        title: 'science',
+        dateCreated: 1767374640693,
+        cardGroups: [
+            {
+                title: 'test 1',
+                dateCreated: 1767376445152,
+                dateEdited: 1,
+                cards: [
+                    {
+                        question: 'What colour is the sky?',
+                        correctAnswer: 'blue',
+                        incorrectAnswers: ['red', 'green', 'yellow'],
+                    },
+                    {
+                        question: 'What colour is the grass?',
+                        correctAnswer: 'green',
+                        incorrectAnswers: ['red', 'blue', 'yellow'],
+                    },
+                ],
+            },
+            {
+                title: 'test 2',
+                dateCreated: 1767376457874,
+                dateEdited: 1,
+                cards: [
+                    {
+                        question: 'What colour is the sky?',
+                        correctAnswer: 'blue',
+                        incorrectAnswers: ['red', 'green', 'yellow'],
+                    },
+                    {
+                        question: 'What colour is the grass?',
+                        correctAnswer: 'green',
+                        incorrectAnswers: ['red', 'blue', 'yellow'],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'math',
+        dateCreated: 1767374667081,
+        cardGroups: [
+            {
+                title: 'test 3',
+                dateCreated: 1767376472479,
+                dateEdited: 1,
+                cards: [
+                    {
+                        question: 'What colour is the sky?',
+                        correctAnswer: 'blue',
+                        incorrectAnswers: ['red', 'green', 'yellow'],
+                    },
+                    {
+                        question: 'What colour is the grass?',
+                        correctAnswer: 'green',
+                        incorrectAnswers: ['red', 'blue', 'yellow'],
+                    },
+                ],
+            },
+        ],
+    },
+]

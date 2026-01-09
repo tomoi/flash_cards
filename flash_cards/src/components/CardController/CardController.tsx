@@ -45,6 +45,18 @@ export default function CardController({
                 >
                     Add Cards
                 </button>
+                <button
+                    onClick={() => {
+                        setCardDisplayType('flip')
+                    }}
+                    //Disable button if there is no cards to edit in the group
+                    disabled={
+                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
+                            .length === 0
+                    }
+                >
+                    Flip Cards
+                </button>
                 <FlashCardGrid
                     cardArray={
                         subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
