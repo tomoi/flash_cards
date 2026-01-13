@@ -68,6 +68,17 @@ export interface CardControllerProps extends subjectInfoProps {
 export interface FlashCardProps extends subjectInfoProps {
     cardIndex: [number, number, number]
     setCardIndex: React.Dispatch<React.SetStateAction<[number, number, number]>>
+    setCardDisplayType: React.Dispatch<
+        React.SetStateAction<
+            | 'default'
+            | 'flip'
+            | 'multipleChoice'
+            | 'shortAnswer'
+            | 'addCard'
+            | 'editCard'
+            | undefined
+        >
+    >
 }
 
 export interface FlashCardGridProps {

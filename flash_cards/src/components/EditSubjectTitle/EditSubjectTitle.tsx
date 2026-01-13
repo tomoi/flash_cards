@@ -1,4 +1,4 @@
-import type { subjectEditProps } from '../interfaces.tsx'
+import type { subjectEditProps } from '../../interfaces.tsx'
 
 // Component to display a field to edit an already existing subject
 
@@ -13,7 +13,6 @@ export default function EditSubjectTitle({
         newSubjectData[subjectIndex].title = formData.get('subjectTitle')
         updateSubjectData(newSubjectData)
         toggleEditSubject(false)
-        console.log(subjectData)
         return
     }
     return (

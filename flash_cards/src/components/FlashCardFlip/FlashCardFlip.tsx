@@ -1,4 +1,5 @@
 import type { FlashCardProps } from '../../interfaces'
+import { useState } from 'react'
 
 export default function FlashCardFlip({
     subjectData,
@@ -6,16 +7,43 @@ export default function FlashCardFlip({
     cardIndex,
     setCardIndex,
 }: FlashCardProps) {
-    return (
-        <>
-            <h3>
-                {
-                    subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards[
-                        cardIndex[2]
-                    ].question
-                }
-            </h3>
-            <p>Flip</p>
-        </>
-    )
+    const [flipped, toggleFlipped] = useState(false)
+
+    if (!flipped) {
+        return (
+            <>
+                <h3>
+                    {
+                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
+                            .cards[cardIndex[2]].question
+                    }
+                </h3>
+                <button
+                    onClick={() => {
+                        toggleFlipped(!flipped)
+                    }}
+                >
+                    Flip
+                </button>
+            </>
+        )
+    } else {
+        return (
+            <>
+                <h3>
+                    {
+                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
+                            .cards[cardIndex[2]].correctAnswer
+                    }
+                </h3>
+                <button
+                    onClick={() => {
+                        toggleFlipped(!flipped)
+                    }}
+                >
+                    Flip
+                </button>
+            </>
+        )
+    }
 }

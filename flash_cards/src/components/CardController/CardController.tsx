@@ -36,7 +36,7 @@ export default function CardController({
                             .length === 0
                     }
                 >
-                    Edit Mode
+                    Edit
                 </button>
                 <button
                     onClick={() => {
@@ -70,7 +70,13 @@ export default function CardController({
     } else if (cardDisplayType === 'editCard') {
         return (
             <>
-                {/* <EditFlashCard /> */}
+                <EditFlashCard
+                    subjectData={subjectData}
+                    updateSubjectData={updateSubjectData}
+                    cardIndex={cardIndex}
+                    setCardIndex={setCardIndex}
+                    setCardDisplayType={setCardDisplayType}
+                />
                 <button onClick={() => setCardDisplayType('default')}>
                     Back to default
                 </button>
@@ -100,6 +106,7 @@ export default function CardController({
                     updateSubjectData={updateSubjectData}
                     cardIndex={cardIndex}
                     setCardIndex={setCardIndex}
+                    setCardDisplayType={setCardDisplayType}
                 />
                 <FlashCardGrid
                     cardArray={
