@@ -1,3 +1,5 @@
+import './footer.css'
+
 export default function Footer() {
     return (
         <div className="footer">
@@ -9,7 +11,7 @@ export default function Footer() {
                 </li>
                 <li>
                     <a href="https://www.tomasgodoybaca.com/">
-                        My Websites Homepage
+                        Back to Portfolio
                     </a>
                 </li>
             </ul>

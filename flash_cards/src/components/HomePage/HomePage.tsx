@@ -28,7 +28,7 @@ export default function HomePage({
     //display if there is no information on launch
     if (subjectData.length === 0) {
         return (
-            <>
+            <main>
                 <h2>Create a new subject to start!</h2>
                 <NewSubjectButton toggleAddSubject={toggleAddSubject} />
                 {addSubject && (
@@ -45,7 +45,7 @@ export default function HomePage({
                 >
                     Use filler data
                 </button>
-            </>
+            </main>
         )
     }
 
@@ -166,7 +166,7 @@ export default function HomePage({
         )
     )
     return (
-        <>
+        <main>
             {homeSections}
             {addSubject && (
                 <AddSubjectForm
@@ -184,7 +184,7 @@ export default function HomePage({
                     toggleShowCard={toggleShowCard}
                 />
             )}
-        </>
+        </main>
     )
 }
 

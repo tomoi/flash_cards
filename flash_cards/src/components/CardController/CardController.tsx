@@ -24,7 +24,7 @@ export default function CardController({
 
     if (cardDisplayType === 'default') {
         return (
-            <div>
+            <div className="cardController">
                 <p>Default Card Group View</p>
                 <button
                     onClick={() => {
@@ -69,7 +69,7 @@ export default function CardController({
         )
     } else if (cardDisplayType === 'editCard') {
         return (
-            <>
+            <div className="cardController">
                 <EditFlashCard
                     subjectData={subjectData}
                     updateSubjectData={updateSubjectData}
@@ -81,11 +81,11 @@ export default function CardController({
                     Back to default
                 </button>
                 <CardExit toggleShowCard={toggleShowCard} />
-            </>
+            </div>
         )
     } else if (cardDisplayType === 'addCard') {
         return (
-            <>
+            <div className="cardController">
                 <AddFlashCard
                     subjectData={subjectData}
                     updateSubjectData={updateSubjectData}
@@ -96,11 +96,11 @@ export default function CardController({
                     Back to default
                 </button>
                 <CardExit toggleShowCard={toggleShowCard} />
-            </>
+            </div>
         )
     } else if (cardDisplayType === 'flip') {
         return (
-            <>
+            <div className="cardController">
                 <FlashCardFlip
                     subjectData={subjectData}
                     updateSubjectData={updateSubjectData}
@@ -116,7 +116,7 @@ export default function CardController({
                     providedCardIndex={cardIndex}
                 />
                 <CardExit toggleShowCard={toggleShowCard} />
-            </>
+            </div>
         )
     }
 
