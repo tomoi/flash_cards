@@ -9,8 +9,6 @@ import NewCardGroupForm from '../NewCardGroupForm/NewCardGroupForm.tsx'
 import CardController from '../CardController/CardController.tsx'
 import type { Subject } from '../../interfaces.tsx'
 
-import './homePage.css'
-
 import type { subjectInfoProps } from '../../interfaces.tsx'
 
 export default function HomePage({
@@ -52,34 +50,36 @@ export default function HomePage({
     let homeSections = subjectData.map(
         (subject, subjectIndex, subjectArray) => (
             <div className="singleSubject" key={subject.dateCreated}>
-                {/* change what is displayed based on if the tile is currently being edited */}
-                {editSubjectIndex === subjectIndex && editSubject ? (
-                    <EditSubjectTitle
-                        subjectData={subjectData}
-                        updateSubjectData={updateSubjectData}
-                        subjectIndex={subjectIndex}
-                        toggleEditSubject={toggleEditSubject}
-                    />
-                ) : (
-                    <>
-                        <h2>{subject.title}</h2>
-                        <button
-                            onClick={() => {
-                                toggleEditSubject(true)
-                                setEditSubjectIndex(subjectIndex)
-                            }}
-                        >
-                            Edit Title
-                        </button>
-                        <p>
-                            Created{' '}
-                            <CreatedDate
-                                date={subject.dateCreated}
-                                displayType="short"
-                            />
-                        </p>
-                    </>
-                )}
+                <div className="subject-title">
+                    {/* change what is displayed based on if the tile is currently being edited */}
+                    {editSubjectIndex === subjectIndex && editSubject ? (
+                        <EditSubjectTitle
+                            subjectData={subjectData}
+                            updateSubjectData={updateSubjectData}
+                            subjectIndex={subjectIndex}
+                            toggleEditSubject={toggleEditSubject}
+                        />
+                    ) : (
+                        <>
+                            <h2>{subject.title}</h2>
+                            <button
+                                onClick={() => {
+                                    toggleEditSubject(true)
+                                    setEditSubjectIndex(subjectIndex)
+                                }}
+                            >
+                                Edit Title
+                            </button>
+                            <p>
+                                Created{' '}
+                                <CreatedDate
+                                    date={subject.dateCreated}
+                                    displayType="short"
+                                />
+                            </p>
+                        </>
+                    )}
+                </div>
                 <div className="subjectCardGroups">
                     {subject.cardGroups.map(
                         (cardGroup, cardGroupIndex, cardGroupArray) => (
@@ -191,11 +191,11 @@ export default function HomePage({
 let fillerData: Subject[] = [
     {
         title: 'science',
-        dateCreated: 1767374640693,
+        dateCreated: 1767374648693,
         cardGroups: [
             {
                 title: 'test 1',
-                dateCreated: 1767376445152,
+                dateCreated: 1767356445152,
                 dateEdited: 1,
                 cards: [
                     {
@@ -217,7 +217,53 @@ let fillerData: Subject[] = [
             },
             {
                 title: 'test 2',
-                dateCreated: 1767376457874,
+                dateCreated: 1367376457874,
+                dateEdited: 1,
+                cards: [
+                    {
+                        question: 'What colour is the sky?',
+                        correctAnswer: 'blue',
+                        incorrectAnswers: ['red', 'green', 'yellow'],
+                    },
+                    {
+                        question: 'What colour is the grass?',
+                        correctAnswer: 'green',
+                        incorrectAnswers: ['red', 'blue', 'yellow'],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'math',
+        dateCreated: 1767378667081,
+        cardGroups: [
+            {
+                title: 'test 3',
+                dateCreated: 1767576472479,
+                dateEdited: 1,
+                cards: [
+                    {
+                        question: 'What colour is the sky?',
+                        correctAnswer: 'blue',
+                        incorrectAnswers: ['red', 'green', 'yellow'],
+                    },
+                    {
+                        question: 'What colour is the grass?',
+                        correctAnswer: 'green',
+                        incorrectAnswers: ['red', 'blue', 'yellow'],
+                    },
+                ],
+            },
+        ],
+    },
+    {
+        title: 'math',
+        dateCreated: 1767374267081,
+        cardGroups: [
+            {
+                title: 'test 3',
+                dateCreated: 1767376972479,
                 dateEdited: 1,
                 cards: [
                     {
@@ -240,7 +286,7 @@ let fillerData: Subject[] = [
         cardGroups: [
             {
                 title: 'test 3',
-                dateCreated: 1767376472479,
+                dateCreated: 1767306472479,
                 dateEdited: 1,
                 cards: [
                     {
@@ -259,11 +305,11 @@ let fillerData: Subject[] = [
     },
     {
         title: 'math',
-        dateCreated: 1767374667081,
+        dateCreated: 1767346667081,
         cardGroups: [
             {
                 title: 'test 3',
-                dateCreated: 1767376472479,
+                dateCreated: 1767976472479,
                 dateEdited: 1,
                 cards: [
                     {
@@ -282,11 +328,11 @@ let fillerData: Subject[] = [
     },
     {
         title: 'math',
-        dateCreated: 1767374667081,
+        dateCreated: 1167374667081,
         cardGroups: [
             {
                 title: 'test 3',
-                dateCreated: 1767376472479,
+                dateCreated: 1767376472478,
                 dateEdited: 1,
                 cards: [
                     {
@@ -305,57 +351,11 @@ let fillerData: Subject[] = [
     },
     {
         title: 'math',
-        dateCreated: 1767374667081,
+        dateCreated: 1767377667081,
         cardGroups: [
             {
                 title: 'test 3',
-                dateCreated: 1767376472479,
-                dateEdited: 1,
-                cards: [
-                    {
-                        question: 'What colour is the sky?',
-                        correctAnswer: 'blue',
-                        incorrectAnswers: ['red', 'green', 'yellow'],
-                    },
-                    {
-                        question: 'What colour is the grass?',
-                        correctAnswer: 'green',
-                        incorrectAnswers: ['red', 'blue', 'yellow'],
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        title: 'math',
-        dateCreated: 1767374667081,
-        cardGroups: [
-            {
-                title: 'test 3',
-                dateCreated: 1767376472479,
-                dateEdited: 1,
-                cards: [
-                    {
-                        question: 'What colour is the sky?',
-                        correctAnswer: 'blue',
-                        incorrectAnswers: ['red', 'green', 'yellow'],
-                    },
-                    {
-                        question: 'What colour is the grass?',
-                        correctAnswer: 'green',
-                        incorrectAnswers: ['red', 'blue', 'yellow'],
-                    },
-                ],
-            },
-        ],
-    },
-    {
-        title: 'math',
-        dateCreated: 1767374667081,
-        cardGroups: [
-            {
-                title: 'test 3',
-                dateCreated: 1767376472479,
+                dateCreated: 1767376472879,
                 dateEdited: 1,
                 cards: [
                     {

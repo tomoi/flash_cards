@@ -9,6 +9,7 @@
     background-image: variables.$background-gradient;
     grid-template-areas: ". text .";
     width: 100%;
+    margin-top: 14px;
 
     ul {
         list-style: none;

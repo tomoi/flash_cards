@@ -1,0 +1,36 @@
+main {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 8px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 10px;
+}
+
+.singleSubject {
+    .subject-title {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        column-gap: 10px;
+        row-gap: 4px;
+        grid-template-areas: "title edit-button"
+        "date date";
+        margin-bottom: 8px;
+        h2 {
+            grid-area: title;
+        }
+        button {
+            grid-area: edit-button;
+        }
+        p {
+            grid-area: date;
+        }
+    }
+
+    .subjectCardGroups {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 24px;
+    }
+}
