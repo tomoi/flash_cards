@@ -1,17 +1,24 @@
 // <weight>: Use a value from 100 to 900
 
+@use "../src/components/Header/header";
+@use "../src/components/Footer/footer";
+
+@use "../src/variables";
+
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: variables.$font-stack;
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings: "wdth" 100;
 }
 
 #root {
-    height: 100vh;
+    min-height: 100vh;
+    height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
 }
