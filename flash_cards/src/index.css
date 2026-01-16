@@ -93,6 +93,26 @@ main {
   display: flex;
   flex-flow: row nowrap;
   gap: 24px;
+  transition-duration: 100ms;
+}
+.singleSubject .singleCardGroup {
+  background-image: linear-gradient(45deg, #FFADEF, #D96DFF);
+  padding: 10px 15px;
+  border-radius: 14px;
+  min-height: 160px;
+  min-width: 270px;
+  transition-duration: 100ms;
+}
+.singleSubject .singleCardGroup:hover {
+  transform: scale(1.05);
+  transition-duration: 100ms;
+  cursor: pointer;
+}
+.singleSubject .singleCardGroup .date {
+  font-size: 16px;
+}
+.singleSubject .singleCardGroup h3 {
+  font-size: 24px;
 }
 
 * {

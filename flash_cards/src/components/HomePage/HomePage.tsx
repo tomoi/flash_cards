@@ -96,18 +96,10 @@ export default function HomePage({
                                         ])
                                     }}
                                 >
-                                    <p>{cardGroup.title}</p>
-                                    <p>
-                                        Created{' '}
+                                    <h3>{cardGroup.title}</h3>
+                                    <p className="date">
                                         <CreatedDate
                                             date={cardGroup.dateCreated}
-                                            displayType="short"
-                                        />
-                                    </p>
-                                    <p>
-                                        Last Edited{' '}
-                                        <CreatedDate
-                                            date={cardGroup.dateEdited}
                                             displayType="short"
                                         />
                                     </p>

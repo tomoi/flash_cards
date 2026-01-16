@@ -1,3 +1,5 @@
+@use '../../variables';
+
 main {
     display: flex;
     flex-flow: column nowrap;
@@ -14,8 +16,9 @@ main {
         grid-template-columns: max-content max-content;
         column-gap: 10px;
         row-gap: 4px;
-        grid-template-areas: "title edit-button"
-        "date date";
+        grid-template-areas:
+            'title edit-button'
+            'date date';
         margin-bottom: 8px;
         h2 {
             grid-area: title;
@@ -32,5 +35,27 @@ main {
         display: flex;
         flex-flow: row nowrap;
         gap: 24px;
+        transition-duration: 100ms;
+    }
+
+    .singleCardGroup {
+        background-image: variables.$background-gradient;
+        padding: 10px 15px;
+        border-radius: 14px;
+        min-height: 160px;
+        min-width: 270px;
+        transition-duration: 100ms;
+        &:hover {
+            transform: scale(1.05);
+            transition-duration: 100ms;
+            cursor: pointer;
+        }
+
+        .date {
+            font-size: 16px;
+        }
+        h3 {
+            font-size: 24px;
+        }
     }
 }
