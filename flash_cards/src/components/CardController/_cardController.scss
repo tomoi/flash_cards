@@ -1,0 +1,17 @@
+@use '../../variables';
+
+.cardController {
+    position: fixed;
+    background-color: white;
+    z-index: 0;
+    &::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ffadc680;
+        z-index: -1;
+    }
+}

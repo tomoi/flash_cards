@@ -5,7 +5,7 @@ import AddFlashCard from '../AddFlashCard/AddFlashCard'
 import FlashCardFlip from '../FlashCardFlip/FlashCardFlip'
 import FlashCardGrid from '../FlashCardGridView/FlashCardGridView'
 import CardExit from '../CardExit/CardExit'
-import './cardController.css'
+import CreatedDate from '../CreatedDate/CreatedDate'
 
 //Component to control how the cards are displayed, to keep the homepage as clean as possible.
 
@@ -25,7 +25,17 @@ export default function CardController({
     if (cardDisplayType === 'default') {
         return (
             <div className="cardController">
-                <p>Default Card Group View</p>
+                <p>
+                    {subjectData[cardIndex[0]].cardGroups[cardIndex[1]].title}
+                </p>
+                <p>Created </p>
+                <CreatedDate
+                    date={
+                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
+                            .dateCreated
+                    }
+                    displayType="short"
+                />
                 <button
                     onClick={() => {
                         setCardDisplayType('editCard')

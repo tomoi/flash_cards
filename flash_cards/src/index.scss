@@ -8,6 +8,7 @@
 @use '../src/components/EditSubjectTitle/editSubjectTitle';
 @use '../src/components/NewCardGroupForm/newCardGroupForm';
 @use '../src/components/AddSubjectForm/addSubjectForm';
+@use '../src/components/CardController/cardController';
 
 @use '../src/variables';
 
@@ -27,4 +28,14 @@
     height: 100%;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    &::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-image: variables.$background-gradient-dark;
+        z-index: -4;
+    }
 }
