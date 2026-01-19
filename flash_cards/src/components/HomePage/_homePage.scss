@@ -4,13 +4,16 @@ main {
     display: flex;
     flex-flow: column nowrap;
     gap: 8px;
-    margin: 0 auto;
+    margin: 12px auto;
     width: 100%;
     max-width: 1200px;
     padding: 0 10px;
 }
 
 .singleSubject {
+    padding-bottom: 12px;
+    border-bottom: solid 2px variables.$separator-colour;
+    // overflow: auto;
     .subject-title {
         display: grid;
         grid-template-columns: max-content max-content;
@@ -44,10 +47,10 @@ main {
         border-radius: 14px;
         min-height: 160px;
         min-width: 270px;
-        transition-duration: 100ms;
+        transition-duration: variables.$transition;
         &:hover {
             transform: scale(1.05);
-            transition-duration: 100ms;
+            transition-duration: variables.$transition;
             cursor: pointer;
         }
 

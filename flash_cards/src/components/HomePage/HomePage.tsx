@@ -49,112 +49,116 @@ export default function HomePage({
 
     let homeSections = subjectData.map(
         (subject, subjectIndex, subjectArray) => (
-            <div className="singleSubject" key={subject.dateCreated}>
-                <div className="subject-title">
-                    {/* change what is displayed based on if the tile is currently being edited */}
-                    {editSubjectIndex === subjectIndex && editSubject ? (
-                        <EditSubjectTitle
-                            subjectData={subjectData}
-                            updateSubjectData={updateSubjectData}
-                            subjectIndex={subjectIndex}
-                            toggleEditSubject={toggleEditSubject}
-                        />
-                    ) : (
-                        <>
-                            <h2>{subject.title}</h2>
-                            <button
-                                onClick={() => {
-                                    toggleEditSubject(true)
-                                    setEditSubjectIndex(subjectIndex)
-                                }}
-                            >
-                                Edit Title
-                            </button>
-                            <p>
-                                Created{' '}
-                                <CreatedDate
-                                    date={subject.dateCreated}
-                                    displayType="short"
-                                />
-                            </p>
-                        </>
-                    )}
-                </div>
-                <div className="subjectCardGroups">
-                    {subject.cardGroups.map(
-                        (cardGroup, cardGroupIndex, cardGroupArray) => (
+            <>
+                <div className="singleSubject" key={subject.dateCreated}>
+                    <div className="subject-title">
+                        {/* change what is displayed based on if the tile is currently being edited */}
+                        {editSubjectIndex === subjectIndex && editSubject ? (
+                            <EditSubjectTitle
+                                subjectData={subjectData}
+                                updateSubjectData={updateSubjectData}
+                                subjectIndex={subjectIndex}
+                                toggleEditSubject={toggleEditSubject}
+                            />
+                        ) : (
                             <>
-                                <div
-                                    className="singleCardGroup"
-                                    key={cardGroup.dateCreated}
+                                <h2>{subject.title}</h2>
+                                <button
                                     onClick={() => {
-                                        toggleShowCard(true)
-                                        setSelectedCardGroup([
-                                            subjectIndex,
-                                            cardGroupIndex,
-                                            0,
-                                        ])
+                                        toggleEditSubject(true)
+                                        setEditSubjectIndex(subjectIndex)
                                     }}
                                 >
-                                    <h3>{cardGroup.title}</h3>
-                                    <p className="date">
-                                        <CreatedDate
-                                            date={cardGroup.dateCreated}
-                                            displayType="short"
-                                        />
-                                    </p>
-                                </div>
-                                {addCardGroup &&
-                                    editSubjectIndex === subjectIndex &&
-                                    cardGroupIndex ===
+                                    Edit Title
+                                </button>
+                                <p>
+                                    Created{' '}
+                                    <CreatedDate
+                                        date={subject.dateCreated}
+                                        displayType="short"
+                                    />
+                                </p>
+                            </>
+                        )}
+                    </div>
+                    <div className="subjectCardGroups">
+                        {subject.cardGroups.map(
+                            (cardGroup, cardGroupIndex, cardGroupArray) => (
+                                <>
+                                    <div
+                                        className="singleCardGroup"
+                                        key={cardGroup.dateCreated}
+                                        onClick={() => {
+                                            toggleShowCard(true)
+                                            setSelectedCardGroup([
+                                                subjectIndex,
+                                                cardGroupIndex,
+                                                0,
+                                            ])
+                                        }}
+                                    >
+                                        <h3>{cardGroup.title}</h3>
+                                        <p className="date">
+                                            <CreatedDate
+                                                date={cardGroup.dateCreated}
+                                                displayType="short"
+                                            />
+                                        </p>
+                                    </div>
+                                    {addCardGroup &&
+                                        editSubjectIndex === subjectIndex &&
+                                        cardGroupIndex ===
+                                            cardGroupArray.length - 1 && (
+                                            <NewCardGroupForm
+                                                subjectData={subjectData}
+                                                subjectIndex={subjectIndex}
+                                                updateSubjectData={
+                                                    updateSubjectData
+                                                }
+                                                toggleAddCardGroup={
+                                                    toggleAddCardGroup
+                                                }
+                                            />
+                                        )}
+                                    {cardGroupIndex ===
                                         cardGroupArray.length - 1 && (
-                                        <NewCardGroupForm
-                                            subjectData={subjectData}
-                                            subjectIndex={subjectIndex}
-                                            updateSubjectData={
-                                                updateSubjectData
-                                            }
+                                        <NewCardGroupButton
                                             toggleAddCardGroup={
                                                 toggleAddCardGroup
                                             }
+                                            subjectIndex={subjectIndex}
+                                            setEditSubjectIndex={
+                                                setEditSubjectIndex
+                                            }
                                         />
                                     )}
-                                {cardGroupIndex ===
-                                    cardGroupArray.length - 1 && (
-                                    <NewCardGroupButton
-                                        toggleAddCardGroup={toggleAddCardGroup}
-                                        subjectIndex={subjectIndex}
-                                        setEditSubjectIndex={
-                                            setEditSubjectIndex
-                                        }
-                                    />
-                                )}
-                            </>
-                        )
-                    )}
-                    {/* button to add card group after the last card group appears, or if there are no card groups to display */}
-                    {addCardGroup &&
-                        editSubjectIndex === subjectIndex &&
-                        subject.cardGroups.length === 0 && (
-                            <NewCardGroupForm
-                                subjectData={subjectData}
-                                subjectIndex={subjectIndex}
-                                updateSubjectData={updateSubjectData}
+                                </>
+                            )
+                        )}
+                        {/* button to add card group after the last card group appears, or if there are no card groups to display */}
+                        {addCardGroup &&
+                            editSubjectIndex === subjectIndex &&
+                            subject.cardGroups.length === 0 && (
+                                <NewCardGroupForm
+                                    subjectData={subjectData}
+                                    subjectIndex={subjectIndex}
+                                    updateSubjectData={updateSubjectData}
+                                    toggleAddCardGroup={toggleAddCardGroup}
+                                />
+                            )}
+                        {subject.cardGroups.length === 0 && (
+                            <NewCardGroupButton
                                 toggleAddCardGroup={toggleAddCardGroup}
+                                subjectIndex={subjectIndex}
+                                setEditSubjectIndex={setEditSubjectIndex}
                             />
                         )}
-                    {subject.cardGroups.length === 0 && (
-                        <NewCardGroupButton
-                            toggleAddCardGroup={toggleAddCardGroup}
-                            subjectIndex={subjectIndex}
-                            setEditSubjectIndex={setEditSubjectIndex}
-                        />
-                    )}
+                    </div>
                 </div>
                 {subjectIndex === subjectArray.length - 1 && (
                     <NewSubjectButton toggleAddSubject={toggleAddSubject} />
                 )}
-            </div>
+            </>
         )
     )
     return (

@@ -1,0 +1,16 @@
+@use '../../variables';
+
+.newSubjectButton {
+    background-image: variables.$background-gradient;
+    border-radius: 14px;
+    border: none;
+    height: 42px;
+    width: 100%;
+    transition-duration: variables.$transition;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.02);
+        transition-duration: variables.$transition;
+    }
+}

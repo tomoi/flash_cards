@@ -1,0 +1,16 @@
+@use '../../variables';
+
+.newCardGroupButton {
+    background-image: variables.$background-gradient;
+    border-radius: 14px;
+    border: none;
+    width: 42px;
+    min-height: 160px;
+    transition-duration: variables.$transition;
+
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.08);
+        transition-duration: variables.$transition;
+    }
+}

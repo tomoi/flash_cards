@@ -1,4 +1,4 @@
-import type { addCardGroupButtonProps } from '../interfaces'
+import type { addCardGroupButtonProps } from '../../interfaces'
 
 export default function NewCardGroupButton({
     toggleAddCardGroup,
@@ -7,12 +7,16 @@ export default function NewCardGroupButton({
 }: addCardGroupButtonProps) {
     return (
         <button
+            className="newCardGroupButton"
             onClick={() => {
                 toggleAddCardGroup(true)
                 setEditSubjectIndex(subjectIndex)
             }}
         >
-            New CardGroup Button
+            <img
+                src="../../public/assets/plus_icon_6d0037.svg"
+                alt="Plus icon"
+            />
         </button>
     )
 }

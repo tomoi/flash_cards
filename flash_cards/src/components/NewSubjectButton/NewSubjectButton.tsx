@@ -1,15 +1,19 @@
-import type { addSubjectButtonProps } from '../interfaces'
+import type { addSubjectButtonProps } from '../../interfaces'
 
 export default function NewSubjectButton({
     toggleAddSubject,
 }: addSubjectButtonProps) {
     return (
         <button
+            className="newSubjectButton"
             onClick={() => {
                 toggleAddSubject(true)
             }}
         >
-            New Subject Button
+            <img
+                src="../../public/assets/plus_icon_6d0037.svg"
+                alt="Plus icon"
+            />
         </button>
     )
 }

@@ -1,11 +1,12 @@
 // <weight>: Use a value from 100 to 900
 
-@use "../src/components/Header/header";
-@use "../src/components/Footer/footer";
-@use "../src/components/HomePage/homePage";
+@use '../src/components/Header/header';
+@use '../src/components/Footer/footer';
+@use '../src/components/HomePage/homePage';
+@use '../src/components/NewCardGroupButton/NewCardGroupButton';
+@use '../src/components/NewSubjectButton/newSubjectButton';
 
-@use "../src/variables";
-
+@use '../src/variables';
 
 * {
     box-sizing: border-box;
@@ -14,7 +15,7 @@
     font-family: variables.$font-stack;
     font-optical-sizing: auto;
     font-style: normal;
-    font-variation-settings: "wdth" 100;
+    font-variation-settings: 'wdth' 100;
 }
 
 #root {

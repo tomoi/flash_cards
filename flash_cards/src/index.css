@@ -3,7 +3,7 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 4px 10px;
-  color: #2B0036;
+  color: #2b0036;
   display: flex;
   flex-flow: row nowrap;
   align-items: baseline;
@@ -21,7 +21,7 @@
 }
 .header::after {
   content: "";
-  background-image: linear-gradient(45deg, #FFADEF, #D96DFF);
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
   height: 48px;
   z-index: -1;
   position: absolute;
@@ -36,7 +36,7 @@
   height: 60px;
   display: grid;
   grid-template-columns: auto 1fr auto;
-  background-image: linear-gradient(45deg, #FFADEF, #D96DFF);
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
   grid-template-areas: ". text .";
   width: 100%;
   margin-top: 14px;
@@ -65,12 +65,16 @@ main {
   display: flex;
   flex-flow: column nowrap;
   gap: 8px;
-  margin: 0 auto;
+  margin: 12px auto;
   width: 100%;
   max-width: 1200px;
   padding: 0 10px;
 }
 
+.singleSubject {
+  padding-bottom: 12px;
+  border-bottom: solid 2px rgba(109, 0, 54, 0.5176470588);
+}
 .singleSubject .subject-title {
   display: grid;
   grid-template-columns: max-content max-content;
@@ -96,7 +100,7 @@ main {
   transition-duration: 100ms;
 }
 .singleSubject .singleCardGroup {
-  background-image: linear-gradient(45deg, #FFADEF, #D96DFF);
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
   padding: 10px 15px;
   border-radius: 14px;
   min-height: 160px;
@@ -113,6 +117,34 @@ main {
 }
 .singleSubject .singleCardGroup h3 {
   font-size: 24px;
+}
+
+.newCardGroupButton {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border-radius: 14px;
+  border: none;
+  width: 42px;
+  min-height: 160px;
+  transition-duration: 100ms;
+}
+.newCardGroupButton:hover {
+  cursor: pointer;
+  transform: scale(1.08);
+  transition-duration: 100ms;
+}
+
+.newSubjectButton {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border-radius: 14px;
+  border: none;
+  height: 42px;
+  width: 100%;
+  transition-duration: 100ms;
+}
+.newSubjectButton:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  transition-duration: 100ms;
 }
 
 * {
