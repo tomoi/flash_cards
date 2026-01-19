@@ -1,0 +1,29 @@
+@use '../../variables';
+
+.editSubjectTitleForm {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 8px;
+    input {
+        font-size: 32px;
+        font-weight: 600;
+    }
+
+    button {
+        background-image: variables.$background-gradient;
+        width: 70px;
+        padding: 8px auto;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+        transition-duration: variables.$transition;
+        border: 2px solid rgba(0, 0, 0, 0);
+
+        &:hover {
+            cursor: pointer;
+            transition-duration: variables.$transition;
+
+            border: 2px solid variables.$icon-color;
+        }
+    }
+}

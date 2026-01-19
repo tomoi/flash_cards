@@ -5,6 +5,9 @@
 @use '../src/components/HomePage/homePage';
 @use '../src/components/NewCardGroupButton/NewCardGroupButton';
 @use '../src/components/NewSubjectButton/newSubjectButton';
+@use '../src/components/EditSubjectTitle/editSubjectTitle';
+@use '../src/components/NewCardGroupForm/newCardGroupForm';
+@use '../src/components/AddSubjectForm/addSubjectForm';
 
 @use '../src/variables';
 
@@ -16,6 +19,7 @@
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings: 'wdth' 100;
+    color: variables.$icon-color;
 }
 
 #root {

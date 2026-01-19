@@ -10,10 +10,26 @@ main {
     padding: 0 10px;
 }
 
+.editSubjectTitleButton {
+    border: none;
+    background-image: variables.$background-gradient;
+    height: 30px;
+    width: 30px;
+    border-radius: 4px;
+    transition-duration: variables.$transition;
+    border: 2px solid rgba(0, 0, 0, 0);
+
+    &:hover {
+        cursor: pointer;
+        transition-duration: variables.$transition;
+        border: 2px solid variables.$icon-color;
+    }
+}
+
 .singleSubject {
     padding-bottom: 12px;
     border-bottom: solid 2px variables.$separator-colour;
-    // overflow: auto;
+    overflow: auto;
     .subject-title {
         display: grid;
         grid-template-columns: max-content max-content;
@@ -25,6 +41,7 @@ main {
         margin-bottom: 8px;
         h2 {
             grid-area: title;
+            font-size: 32px;
         }
         button {
             grid-area: edit-button;
@@ -44,10 +61,13 @@ main {
     .singleCardGroup {
         background-image: variables.$background-gradient;
         padding: 10px 15px;
+        border: 6px solid rgba(0, 0, 0, 0);
+
         border-radius: 14px;
         min-height: 160px;
         min-width: 270px;
         transition-duration: variables.$transition;
+
         &:hover {
             transform: scale(1.05);
             transition-duration: variables.$transition;

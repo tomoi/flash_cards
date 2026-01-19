@@ -71,9 +71,25 @@ main {
   padding: 0 10px;
 }
 
+.editSubjectTitleButton {
+  border: none;
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  height: 30px;
+  width: 30px;
+  border-radius: 4px;
+  transition-duration: 100ms;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+.editSubjectTitleButton:hover {
+  cursor: pointer;
+  transition-duration: 100ms;
+  border: 2px solid #6d0037;
+}
+
 .singleSubject {
   padding-bottom: 12px;
-  border-bottom: solid 2px rgba(109, 0, 54, 0.5176470588);
+  border-bottom: solid 2px rgba(109, 0, 54, 0.2431372549);
+  overflow: auto;
 }
 .singleSubject .subject-title {
   display: grid;
@@ -86,6 +102,7 @@ main {
 }
 .singleSubject .subject-title h2 {
   grid-area: title;
+  font-size: 32px;
 }
 .singleSubject .subject-title button {
   grid-area: edit-button;
@@ -102,6 +119,7 @@ main {
 .singleSubject .singleCardGroup {
   background-image: linear-gradient(45deg, #ffadef, #d96dff);
   padding: 10px 15px;
+  border: 6px solid rgba(0, 0, 0, 0);
   border-radius: 14px;
   min-height: 160px;
   min-width: 270px;
@@ -126,6 +144,7 @@ main {
   width: 42px;
   min-height: 160px;
   transition-duration: 100ms;
+  flex: none;
 }
 .newCardGroupButton:hover {
   cursor: pointer;
@@ -147,6 +166,89 @@ main {
   transition-duration: 100ms;
 }
 
+.editSubjectTitleForm {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 8px;
+}
+.editSubjectTitleForm input {
+  font-size: 32px;
+  font-weight: 600;
+}
+.editSubjectTitleForm button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  width: 70px;
+  padding: 8px auto;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition-duration: 100ms;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+.editSubjectTitleForm button:hover {
+  cursor: pointer;
+  transition-duration: 100ms;
+  border: 2px solid #6d0037;
+}
+
+.newCardGroupForm {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas: "input input";
+  height: -moz-fit-content;
+  height: fit-content;
+  row-gap: 10px;
+  -moz-column-gap: 12px;
+       column-gap: 12px;
+}
+.newCardGroupForm input {
+  grid-area: input;
+  font-size: 24px;
+  font-weight: 600;
+}
+.newCardGroupForm button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  width: 120px;
+  padding: 8px auto;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition-duration: 100ms;
+  border: 4px solid rgba(0, 0, 0, 0);
+  padding: 4px;
+  justify-self: center;
+}
+.newCardGroupForm button:hover {
+  cursor: pointer;
+  transition-duration: 100ms;
+  border: 4px solid #6d0037;
+}
+
+.addSubjectForm {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 8px;
+}
+.addSubjectForm input {
+  font-size: 32px;
+  font-weight: 700;
+}
+.addSubjectForm button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  width: 70px;
+  padding: 8px auto;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition-duration: 100ms;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+.addSubjectForm button:hover {
+  cursor: pointer;
+  transition-duration: 100ms;
+  border: 2px solid #6d0037;
+}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -155,6 +257,7 @@ main {
   font-optical-sizing: auto;
   font-style: normal;
   font-variation-settings: "wdth" 100;
+  color: #6d0037;
 }
 
 #root {

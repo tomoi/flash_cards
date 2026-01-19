@@ -54,22 +54,35 @@ export default function HomePage({
                     <div className="subject-title">
                         {/* change what is displayed based on if the tile is currently being edited */}
                         {editSubjectIndex === subjectIndex && editSubject ? (
-                            <EditSubjectTitle
-                                subjectData={subjectData}
-                                updateSubjectData={updateSubjectData}
-                                subjectIndex={subjectIndex}
-                                toggleEditSubject={toggleEditSubject}
-                            />
+                            <>
+                                <EditSubjectTitle
+                                    subjectData={subjectData}
+                                    updateSubjectData={updateSubjectData}
+                                    subjectIndex={subjectIndex}
+                                    toggleEditSubject={toggleEditSubject}
+                                />
+                                <p>
+                                    Created{' '}
+                                    <CreatedDate
+                                        date={subject.dateCreated}
+                                        displayType="short"
+                                    />{' '}
+                                </p>
+                            </>
                         ) : (
                             <>
                                 <h2>{subject.title}</h2>
                                 <button
+                                    className="editSubjectTitleButton"
                                     onClick={() => {
                                         toggleEditSubject(true)
                                         setEditSubjectIndex(subjectIndex)
                                     }}
                                 >
-                                    Edit Title
+                                    <img
+                                        src="\assets\edit_24dp_6D0037_FILL0_wght400_GRAD0_opsz24.svg"
+                                        alt="edit button"
+                                    ></img>
                                 </button>
                                 <p>
                                     Created{' '}

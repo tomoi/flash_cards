@@ -16,7 +16,7 @@ export default function EditSubjectTitle({
         return
     }
     return (
-        <form action={handleSubmit}>
+        <form action={handleSubmit} className="editSubjectTitleForm">
             <input
                 type="text"
                 name="subjectTitle"

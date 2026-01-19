@@ -1,4 +1,4 @@
-import type { NewCardGroupProps } from '../interfaces.tsx'
+import type { NewCardGroupProps } from '../../interfaces.tsx'
 
 //form to add a new cardGroup when a button is pressed
 
@@ -25,7 +25,7 @@ export default function NewCardGroupForm({
     //when form is submitted, update subjectData
     return (
         <>
-            <form action={handleSubmit}>
+            <form action={handleSubmit} className="newCardGroupForm">
                 <input type="text" name="cardGroupTitle" autoFocus required />
                 <button type="submit">Save New</button>
                 <button onClick={() => toggleAddCardGroup(false)}>
