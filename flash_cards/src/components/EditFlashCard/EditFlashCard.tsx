@@ -45,7 +45,7 @@ export default function EditFlashCard({
     }
 
     return (
-        <div>
+        <div className="cardEditForm">
             <form action={handleSave}>
                 <input
                     name="question"

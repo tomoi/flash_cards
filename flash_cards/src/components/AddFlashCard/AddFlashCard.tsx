@@ -21,7 +21,7 @@ export default function AddFlashCard({
     }
 
     return (
-        <form action={handleSave}>
+        <form action={handleSave} className="addCardForm">
             <label htmlFor="question">Question: </label>
             <input
                 type="text"

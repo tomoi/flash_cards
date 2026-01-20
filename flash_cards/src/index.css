@@ -256,6 +256,20 @@ main {
   padding: 57px 0;
   position: relative;
 }
+.cardController .returnButton {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 30px;
+  min-width: 60px;
+  transition-duration: 100ms;
+  border-radius: 10px;
+  padding: 0 4px;
+}
+.cardController .returnButton:hover {
+  transition-duration: 100ms;
+  cursor: pointer;
+  border: 2px solid #6d0037;
+}
 .cardController h2 {
   font-size: 36px;
   font-weight: 600;
@@ -283,7 +297,10 @@ main {
   border: 2px solid #6d0037;
 }
 
-.controllerDefault {
+.controllerDefault,
+.controllerEdit,
+.controllerFlip,
+.controllerAdd {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;
@@ -354,6 +371,84 @@ main {
   cursor: pointer;
   transform: scale(1.4);
   transition-duration: 100ms;
+}
+
+.cardEditForm form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 20px;
+  align-items: center;
+}
+.cardEditForm form input {
+  font-size: 30px;
+  border-radius: 8px;
+  text-align: center;
+  border: 2px solid rgba(109, 0, 54, 0.2431372549);
+}
+.cardEditForm form button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 30px;
+  min-width: 60px;
+  transition-duration: 100ms;
+  font-size: 18px;
+  border-radius: 6px;
+}
+.cardEditForm form button:hover {
+  transition-duration: 100ms;
+  cursor: pointer;
+  border: 2px solid #6d0037;
+}
+
+.cardFlip {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+}
+.cardFlip h3 {
+  font-size: 40px;
+}
+.cardFlip button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 40px;
+  min-width: 80px;
+  transition-duration: 100ms;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+.cardFlip button:hover {
+  transition-duration: 100ms;
+  cursor: pointer;
+  border: 2px solid #6d0037;
+}
+
+.addCardForm {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  row-gap: 15px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+  font-size: 20px;
+}
+.addCardForm button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 30px;
+  min-width: 80px;
+  transition-duration: 100ms;
+  border-radius: 10px;
+  font-size: 20px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.addCardForm button:hover {
+  transition-duration: 100ms;
+  cursor: pointer;
+  border: 2px solid #6d0037;
 }
 
 * {

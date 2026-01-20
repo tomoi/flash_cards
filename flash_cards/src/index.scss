@@ -11,6 +11,9 @@
 @use '../src/components/CardController/cardController';
 @use '../src/components/FlashCardGridView/flashCardGridView';
 @use '../src/components/CardExit/cardExit';
+@use '../src/components/EditFlashCard/editFlashCard';
+@use '../src/components/FlashCardFlip/flashCardFlip';
+@use '../src/components/AddFlashCard/addFlashCard';
 
 @use '../src/variables';
 

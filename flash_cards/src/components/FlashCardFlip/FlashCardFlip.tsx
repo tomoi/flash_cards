@@ -11,7 +11,7 @@ export default function FlashCardFlip({
 
     if (!flipped) {
         return (
-            <>
+            <div className="cardFlip">
                 <h3>
                     {
                         subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
@@ -25,11 +25,11 @@ export default function FlashCardFlip({
                 >
                     Flip
                 </button>
-            </>
+            </div>
         )
     } else {
         return (
-            <>
+            <div className="cardFlip">
                 <h3>
                     {
                         subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
@@ -43,7 +43,7 @@ export default function FlashCardFlip({
                 >
                     Flip
                 </button>
-            </>
+            </div>
         )
     }
 }

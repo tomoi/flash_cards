@@ -1,0 +1,21 @@
+@use '../../variables';
+
+.cardEditForm form {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+    align-items: center;
+
+    input {
+        font-size: 30px;
+        border-radius: 8px;
+        text-align: center;
+        border: 2px solid variables.$separator-colour;
+    }
+
+    button {
+        @include variables.defaultButton(60px, 30px, 2px, 1);
+        font-size: 18px;
+        border-radius: 6px;
+    }
+}

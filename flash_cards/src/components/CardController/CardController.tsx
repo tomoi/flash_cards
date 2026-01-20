@@ -144,14 +144,6 @@ export default function CardController({
                         setCardIndex={setCardIndex}
                         setCardDisplayType={setCardDisplayType}
                     />
-                    <FlashCardGrid
-                        cardArray={
-                            subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
-                                .cards
-                        }
-                        setCardIndex={setCardIndex}
-                        providedCardIndex={cardIndex}
-                    />
                     <button
                         onClick={() => setCardDisplayType('default')}
                         className="returnButton"
@@ -174,6 +166,12 @@ export default function CardController({
                         setCardIndex={setCardIndex}
                         setCardDisplayType={setCardDisplayType}
                     />
+                    <button
+                        className="returnButton"
+                        onClick={() => setCardDisplayType('default')}
+                    >
+                        Return
+                    </button>
                     <FlashCardGrid
                         cardArray={
                             subjectData[cardIndex[0]].cardGroups[cardIndex[1]]

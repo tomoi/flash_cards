@@ -1,0 +1,16 @@
+@use '../../variables';
+
+.addCardForm {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    row-gap: 15px;
+    column-gap: 20px;
+    font-size: 20px;
+
+    button {
+        @include variables.defaultButton(80px, 30px, 2px, 1);
+        border-radius: 10px;
+        font-size: 20px;
+        width: fit-content;
+    }
+}
