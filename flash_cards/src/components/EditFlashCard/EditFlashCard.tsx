@@ -1,4 +1,5 @@
 import type { FlashCardProps } from '../../interfaces'
+import { useState } from 'react'
 
 export default function EditFlashCard({
     subjectData,
@@ -17,21 +18,27 @@ export default function EditFlashCard({
             cardIndex[2]
         ].correctAnswer = formData.get('correctAnswer')
 
-        console.log(newSubjectData)
-
         updateSubjectData(newSubjectData)
 
         setCardDisplayType('flip')
     }
+
+    const [question, updateQuestion] = useState('')
+    // updateQuestion(
+    //     subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards[cardIndex[2]]
+    //         .question
+    // )
+
     return (
         <div>
             <form action={handleSave}>
                 <input
                     name="question"
-                    defaultValue={
-                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
-                            .cards[cardIndex[2]].question
-                    }
+                    value={question}
+                    onChange={(e) => {
+                        updateQuestion(e.target.value)
+                        console.log(e.target.value)
+                    }}
                 />
                 <input
                     name="correctAnswer"

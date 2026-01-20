@@ -12,6 +12,7 @@ interface CardSet {
 }
 
 interface Card {
+    dateCreated: number
     question: string
     correctAnswer: string
     incorrectAnswers: string[]

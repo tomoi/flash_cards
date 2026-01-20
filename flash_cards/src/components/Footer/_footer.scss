@@ -1,4 +1,4 @@
-@use "../../variables";
+@use '../../variables';
 
 .footer {
     margin: 0 auto;
@@ -7,9 +7,8 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     background-image: variables.$background-gradient;
-    grid-template-areas: ". text .";
+    grid-template-areas: '. text .';
     width: 100%;
-    margin-top: 14px;
 
     ul {
         list-style: none;
@@ -23,7 +22,7 @@
     }
 
     &::after {
-        content: "";
+        content: '';
         height: 60px;
         z-index: -1;
         left: 0;

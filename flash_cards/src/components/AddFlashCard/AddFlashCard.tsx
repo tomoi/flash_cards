@@ -1,4 +1,4 @@
-import type { FlashCardProps } from '../interfaces'
+import type { FlashCardProps } from '../../interfaces'
 
 export default function AddFlashCard({
     subjectData,
@@ -9,6 +9,7 @@ export default function AddFlashCard({
     function handleSave(formData: any) {
         let newSubjectData = subjectData
         let newCard = {
+            dateCreated: new Date().getTime(),
             question: formData.get('question'),
             correctAnswer: formData.get('correctAnswer'),
             incorrectAnswers: [],

@@ -7,9 +7,15 @@ export default function FlashCardGrid({
 }: FlashCardGridProps) {
     // console.log(providedCardIndex)
     return (
-        <div>
+        <div className="cardGrid">
             {cardArray.map((card, cardIndex) => (
                 <button
+                    key={card.dateCreated}
+                    className={
+                        providedCardIndex[2] === cardIndex
+                            ? 'active'
+                            : undefined
+                    }
                     onClick={() => {
                         setCardIndex([
                             providedCardIndex[0],

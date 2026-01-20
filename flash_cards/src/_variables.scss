@@ -11,3 +11,18 @@ $background-gradient-dark: linear-gradient(
     #ffadc6aa,
     #ffadefaa
 );
+
+@mixin defaultButton($min-width, $min-height, $border-size, $scale) {
+    background-image: $background-gradient;
+    border: $border-size solid rgba(0, 0, 0, 0);
+
+    min-height: $min-height;
+    min-width: $min-width;
+    transition-duration: $transition;
+
+    &:hover {
+        transition-duration: $transition;
+        cursor: pointer;
+        border: $border-size solid $icon-color;
+    }
+}

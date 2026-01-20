@@ -1,0 +1,35 @@
+@use '../../variables';
+
+@keyframes slideIn {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.cardGrid {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 10px;
+
+    button {
+        @include variables.defaultButton(30px, 30px, 2px, 1.02);
+        border-radius: 8px;
+        position: relative;
+    }
+    .active::after {
+        content: '';
+        position: absolute;
+        height: 4px;
+        bottom: -8px;
+        width: 100%;
+        left: 0;
+        background-image: variables.$background-gradient;
+        border-radius: 2px;
+
+        animation-name: slideIn;
+        animation-duration: 200ms;
+    }
+}

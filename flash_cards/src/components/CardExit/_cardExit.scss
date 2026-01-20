@@ -1,0 +1,13 @@
+.exitButton {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    transition-duration: 100ms;
+    &:hover {
+        cursor: pointer;
+        transform: scale(1.4);
+        transition-duration: 100ms;
+    }
+}

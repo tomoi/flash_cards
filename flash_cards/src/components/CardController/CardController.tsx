@@ -24,116 +24,167 @@ export default function CardController({
 
     if (cardDisplayType === 'default') {
         return (
-            <div className="cardController">
-                <p>
-                    {subjectData[cardIndex[0]].cardGroups[cardIndex[1]].title}
-                </p>
-                <p>Created </p>
-                <CreatedDate
-                    date={
-                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
-                            .dateCreated
-                    }
-                    displayType="short"
-                />
-                <button
-                    onClick={() => {
-                        setCardDisplayType('editCard')
-                    }}
-                    //Disable button if there is no cards to edit in the group
-                    disabled={
-                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
-                            .length === 0
-                    }
-                >
-                    Edit
-                </button>
-                <button
-                    onClick={() => {
-                        setCardDisplayType('addCard')
-                    }}
-                >
-                    Add Cards
-                </button>
-                <button
-                    onClick={() => {
-                        setCardDisplayType('flip')
-                    }}
-                    //Disable button if there is no cards to edit in the group
-                    disabled={
-                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
-                            .length === 0
-                    }
-                >
-                    Flip Cards
-                </button>
-                <FlashCardGrid
-                    cardArray={
-                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
-                    }
-                    setCardIndex={setCardIndex}
-                    providedCardIndex={cardIndex}
-                />
-                <CardExit toggleShowCard={toggleShowCard} />
+            <div className="controllerWrapper">
+                <div className="cardController controllerDefault">
+                    <div className="cardHeader">
+                        <h2>
+                            {
+                                subjectData[cardIndex[0]].cardGroups[
+                                    cardIndex[1]
+                                ].title
+                            }
+                        </h2>
+                        <p>
+                            Created{' '}
+                            <CreatedDate
+                                date={
+                                    subjectData[cardIndex[0]].cardGroups[
+                                        cardIndex[1]
+                                    ].dateCreated
+                                }
+                                displayType="short"
+                            />
+                        </p>
+                        <p>
+                            Edited{' '}
+                            <CreatedDate
+                                date={
+                                    subjectData[cardIndex[0]].cardGroups[
+                                        cardIndex[1]
+                                    ].dateEdited
+                                }
+                                displayType="short"
+                            />
+                        </p>
+                    </div>
+                    <div className="cardButtonGroup">
+                        <button
+                            onClick={() => {
+                                setCardDisplayType('editCard')
+                            }}
+                            //Disable button if there is no cards to edit in the group
+                            disabled={
+                                subjectData[cardIndex[0]].cardGroups[
+                                    cardIndex[1]
+                                ].cards.length === 0
+                            }
+                        >
+                            Edit
+                        </button>
+                        <button
+                            onClick={() => {
+                                setCardDisplayType('addCard')
+                            }}
+                        >
+                            Add Cards
+                        </button>
+                        <button
+                            onClick={() => {
+                                setCardDisplayType('flip')
+                            }}
+                            //Disable button if there is no cards to edit in the group
+                            disabled={
+                                subjectData[cardIndex[0]].cardGroups[
+                                    cardIndex[1]
+                                ].cards.length === 0
+                            }
+                        >
+                            Flip Cards
+                        </button>
+                    </div>
+                    <FlashCardGrid
+                        cardArray={
+                            subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
+                                .cards
+                        }
+                        setCardIndex={setCardIndex}
+                        providedCardIndex={cardIndex}
+                    />
+                    <CardExit toggleShowCard={toggleShowCard} />
+                </div>
             </div>
         )
     } else if (cardDisplayType === 'editCard') {
         return (
-            <div className="cardController">
-                <EditFlashCard
-                    subjectData={subjectData}
-                    updateSubjectData={updateSubjectData}
-                    cardIndex={cardIndex}
-                    setCardIndex={setCardIndex}
-                    setCardDisplayType={setCardDisplayType}
-                />
-                <button onClick={() => setCardDisplayType('default')}>
-                    Back to default
-                </button>
-                <CardExit toggleShowCard={toggleShowCard} />
+            <div className="controllerWrapper">
+                <div className="cardController controllerEdit">
+                    <EditFlashCard
+                        subjectData={subjectData}
+                        updateSubjectData={updateSubjectData}
+                        cardIndex={cardIndex}
+                        setCardIndex={setCardIndex}
+                        setCardDisplayType={setCardDisplayType}
+                    />
+                    <button
+                        className="returnButton"
+                        onClick={() => setCardDisplayType('default')}
+                    >
+                        Return
+                    </button>
+                    <FlashCardGrid
+                        cardArray={
+                            subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
+                                .cards
+                        }
+                        setCardIndex={setCardIndex}
+                        providedCardIndex={cardIndex}
+                    />
+                    <CardExit toggleShowCard={toggleShowCard} />
+                </div>
             </div>
         )
     } else if (cardDisplayType === 'addCard') {
         return (
-            <div className="cardController">
-                <AddFlashCard
-                    subjectData={subjectData}
-                    updateSubjectData={updateSubjectData}
-                    cardIndex={cardIndex}
-                    setCardIndex={setCardIndex}
-                />{' '}
-                <button onClick={() => setCardDisplayType('default')}>
-                    Back to default
-                </button>
-                <CardExit toggleShowCard={toggleShowCard} />
+            <div className="controllerWrapper">
+                <div className="cardController controllerAdd">
+                    <AddFlashCard
+                        subjectData={subjectData}
+                        updateSubjectData={updateSubjectData}
+                        cardIndex={cardIndex}
+                        setCardIndex={setCardIndex}
+                        setCardDisplayType={setCardDisplayType}
+                    />
+                    <FlashCardGrid
+                        cardArray={
+                            subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
+                                .cards
+                        }
+                        setCardIndex={setCardIndex}
+                        providedCardIndex={cardIndex}
+                    />
+                    <button
+                        onClick={() => setCardDisplayType('default')}
+                        className="returnButton"
+                    >
+                        Return
+                    </button>
+
+                    <CardExit toggleShowCard={toggleShowCard} />
+                </div>
             </div>
         )
     } else if (cardDisplayType === 'flip') {
         return (
-            <div className="cardController">
-                <FlashCardFlip
-                    subjectData={subjectData}
-                    updateSubjectData={updateSubjectData}
-                    cardIndex={cardIndex}
-                    setCardIndex={setCardIndex}
-                    setCardDisplayType={setCardDisplayType}
-                />
-                <FlashCardGrid
-                    cardArray={
-                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards
-                    }
-                    setCardIndex={setCardIndex}
-                    providedCardIndex={cardIndex}
-                />
-                <CardExit toggleShowCard={toggleShowCard} />
+            <div className="controllerWrapper">
+                <div className="cardController controllerFlip">
+                    <FlashCardFlip
+                        subjectData={subjectData}
+                        updateSubjectData={updateSubjectData}
+                        cardIndex={cardIndex}
+                        setCardIndex={setCardIndex}
+                        setCardDisplayType={setCardDisplayType}
+                    />
+                    <FlashCardGrid
+                        cardArray={
+                            subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
+                                .cards
+                        }
+                        setCardIndex={setCardIndex}
+                        providedCardIndex={cardIndex}
+                    />
+                    <CardExit toggleShowCard={toggleShowCard} />
+                </div>
             </div>
         )
     }
-
-    //while I'm working, this will keep me from having to refresh the page when things go wrong
-    return (
-        <button onClick={() => setCardDisplayType('default')}>
-            Back to default
-        </button>
-    )
 }

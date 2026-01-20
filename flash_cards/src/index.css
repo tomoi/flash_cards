@@ -39,7 +39,6 @@
   background-image: linear-gradient(45deg, #ffadef, #d96dff);
   grid-template-areas: ". text .";
   width: 100%;
-  margin-top: 14px;
 }
 .footer ul {
   list-style: none;
@@ -251,19 +250,110 @@ main {
 }
 
 .cardController {
-  position: fixed;
   background-color: white;
-  z-index: 0;
+  min-width: 750px;
+  min-height: 400px;
+  padding: 57px 0;
+  position: relative;
 }
-.cardController::before {
-  content: "";
+.cardController h2 {
+  font-size: 36px;
+  font-weight: 600;
+}
+.cardController .cardHeader {
+  text-align: center;
+}
+.cardController .cardButtonGroup {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.cardController .cardButtonGroup button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 30px;
+  min-width: 80px;
+  transition-duration: 100ms;
+  border-radius: 10px;
+  padding: 0 4px;
+}
+.cardController .cardButtonGroup button:hover {
+  transition-duration: 100ms;
+  cursor: pointer;
+  border: 2px solid #6d0037;
+}
+
+.controllerDefault {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.controllerWrapper {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background-color: rgba(255, 173, 198, 0.5019607843);
-  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes slideIn {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+.cardGrid {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 10px;
+}
+.cardGrid button {
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border: 2px solid rgba(0, 0, 0, 0);
+  min-height: 30px;
+  min-width: 30px;
+  transition-duration: 100ms;
+  border-radius: 8px;
+  position: relative;
+}
+.cardGrid button:hover {
+  transition-duration: 100ms;
+  cursor: pointer;
+  border: 2px solid #6d0037;
+}
+.cardGrid .active::after {
+  content: "";
+  position: absolute;
+  height: 4px;
+  bottom: -8px;
+  width: 100%;
+  left: 0;
+  background-image: linear-gradient(45deg, #ffadef, #d96dff);
+  border-radius: 2px;
+  animation-name: slideIn;
+  animation-duration: 200ms;
+}
+
+.exitButton {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  transition-duration: 100ms;
+}
+.exitButton:hover {
+  cursor: pointer;
+  transform: scale(1.4);
+  transition-duration: 100ms;
 }
 
 * {

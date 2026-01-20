@@ -208,16 +208,19 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 1767356345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 1167356345152,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
                     },
                     {
+                        dateCreated: 1767350345152,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
@@ -230,11 +233,13 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 17673345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 1457356345152,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
@@ -253,11 +258,13 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 1017356345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 1767356393752,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
@@ -276,11 +283,13 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 1730356345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 17673563451532,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
@@ -299,11 +308,13 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 1721356345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 176735345152,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
@@ -322,11 +333,13 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 17028956345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 1703356345152,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
@@ -345,11 +358,13 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 17670326345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 176735635152,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
@@ -368,11 +383,13 @@ let fillerData: Subject[] = [
                 dateEdited: 1,
                 cards: [
                     {
+                        dateCreated: 17610356345152,
                         question: 'What colour is the sky?',
                         correctAnswer: 'blue',
                         incorrectAnswers: ['red', 'green', 'yellow'],
                     },
                     {
+                        dateCreated: 1760426345152,
                         question: 'What colour is the grass?',
                         correctAnswer: 'green',
                         incorrectAnswers: ['red', 'blue', 'yellow'],
