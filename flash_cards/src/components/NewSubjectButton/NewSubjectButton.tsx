@@ -10,7 +10,7 @@ export default function NewSubjectButton({
                 toggleAddSubject(true)
             }}
         >
-            <img src="/assets/plus_icon_6d0037.svg" alt="Plus icon" />
+            <img src="assets/plus_icon_6d0037.svg" alt="Plus icon" />
         </button>
     )
 }

@@ -80,7 +80,7 @@ export default function HomePage({
                                     }}
                                 >
                                     <img
-                                        src="\assets\edit_24dp_6D0037_FILL0_wght400_GRAD0_opsz24.svg"
+                                        src="assets\edit_24dp_6D0037_FILL0_wght400_GRAD0_opsz24.svg"
                                         alt="edit button"
                                     ></img>
                                 </button>
