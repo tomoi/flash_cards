@@ -1,11 +1,12 @@
 @use '../../variables';
 
 .cardController {
-    background-color: white;
+    background-color: #ffeafa;
     min-width: 750px;
     min-height: 400px;
     padding: 57px 0;
     position: relative;
+    border-radius: 40px;
 
     .returnButton {
         @include variables.defaultButton(60px, 30px, 2px, 1);
