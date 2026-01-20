@@ -23,29 +23,45 @@ export default function EditFlashCard({
         setCardDisplayType('flip')
     }
 
-    const [question, updateQuestion] = useState('')
-    // updateQuestion(
-    //     subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards[cardIndex[2]]
-    //         .question
-    // )
+    const [formData, updateFormData] = useState<string[]>([
+        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards[cardIndex[2]]
+            .question,
+        subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards[cardIndex[2]]
+            .correctAnswer,
+    ])
+
+    const [prevCardIndex, setPrevCardIndex] = useState(cardIndex)
+
+    if (cardIndex !== prevCardIndex) {
+        setPrevCardIndex(cardIndex)
+        updateFormData([
+            subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards[
+                cardIndex[2]
+            ].question,
+            subjectData[cardIndex[0]].cardGroups[cardIndex[1]].cards[
+                cardIndex[2]
+            ].correctAnswer,
+        ])
+    }
 
     return (
         <div>
             <form action={handleSave}>
                 <input
                     name="question"
-                    value={question}
+                    value={formData[0]}
                     onChange={(e) => {
-                        updateQuestion(e.target.value)
+                        updateFormData([e.target.value, formData[1]])
                         console.log(e.target.value)
                     }}
                 />
                 <input
                     name="correctAnswer"
-                    defaultValue={
-                        subjectData[cardIndex[0]].cardGroups[cardIndex[1]]
-                            .cards[cardIndex[2]].correctAnswer
-                    }
+                    value={formData[1]}
+                    onChange={(e) => {
+                        updateFormData([formData[0], e.target.value])
+                        console.log(e.target.value)
+                    }}
                 />
                 <button type="submit">Save</button>
             </form>
