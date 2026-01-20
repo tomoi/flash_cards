@@ -3,9 +3,7 @@ import { useState } from 'react'
 
 export default function FlashCardFlip({
     subjectData,
-    updateSubjectData,
     cardIndex,
-    setCardIndex,
 }: FlashCardProps) {
     const [flipped, toggleFlipped] = useState(false)
 

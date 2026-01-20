@@ -4,7 +4,6 @@ export default function AddFlashCard({
     subjectData,
     updateSubjectData,
     cardIndex,
-    setCardIndex,
 }: FlashCardProps) {
     function handleSave(formData: any) {
         let newSubjectData = subjectData
